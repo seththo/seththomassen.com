@@ -1,2 +1,0 @@
-# seththomassen.com
-personal website
