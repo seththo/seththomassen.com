@@ -1,4 +1,4 @@
-THIS SHOULD BE A LINTER ERROR/* Reset and base styles */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -143,11 +143,45 @@ section h2 {
   line-height: 1.6;
 }
 
-/* Work */
-.work p {
-  font-size: 18px;
+/* Experience */
+.experience-content {
+  display: grid;
+  gap: 50px;
+}
+
+.education h3,
+.skills h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.edu-item h4,
+.skill-area h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.edu-item p,
+.skill-area p {
+  font-size: 16px;
   color: #666;
   line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.skill-areas {
+  display: grid;
+  gap: 25px;
+}
+
+.skill-area {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
 }
 
 /* Resume */
