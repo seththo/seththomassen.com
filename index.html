@@ -47,6 +47,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
+        <div class="hero-star">
+          <div class="star-3d">★</div>
+        </div>
         <h1 class="hero-title">Hello, I'm <span class="highlight">Seth Thomassen</span></h1>
         <p class="hero-subtitle">Marketing Analyst | Data Enthusiast | Creative Professional</p>
         <p class="hero-description">
@@ -58,7 +61,6 @@
           <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" class="btn btn-outline">Download Resume</a>
         </div>
       </div>
-
     </section>
 
     <!-- About Section -->
@@ -76,13 +78,22 @@
             <div class="education-section">
               <h3>Education</h3>
               <div class="education-item">
-                <h4>Bachelor of Business Administration - Marketing</h4>
-                <p>University of Massachusetts Amherst, Isenberg School of Management</p>
-                <ul>
-                  <li>Overall GPA: 3.4</li>
-                  <li>Dean's List for Academic Excellence</li>
-                  <li>Business Analytics Certificate</li>
-                </ul>
+                <div class="education-header">
+                  <div class="education-logos">
+                    <div class="logo-container">
+                      <img src="isenberg.jpeg" alt="Isenberg School of Management" class="isenberg-logo-img">
+                    </div>
+                  </div>
+                  <div class="education-info">
+                    <h4>Bachelor of Business Administration - Marketing</h4>
+                    <p>University of Massachusetts Amherst, Isenberg School of Management</p>
+                    <div class="education-details">
+                      <span class="detail-item">GPA: 3.4</span>
+                      <span class="detail-item">Dean's List</span>
+                      <span class="detail-item">Business Analytics Certificate</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="about-highlights">
@@ -156,7 +167,7 @@
         <div class="projects-grid">
           <div class="project-card">
             <div class="project-image">
-              <div class="project-placeholder"></div>
+              <div class="project-img dashboard-placeholder"></div>
             </div>
             <div class="project-content">
               <h3>Supply Chain Optimization Dashboard</h3>
@@ -172,7 +183,7 @@
 
           <div class="project-card">
             <div class="project-image">
-              <div class="project-placeholder"></div>
+              <div class="project-img analytics-placeholder"></div>
             </div>
             <div class="project-content">
               <h3>Social Media Campaign Analysis</h3>
@@ -263,6 +274,33 @@
       } else {
         navbar.classList.remove('scrolled');
       }
+    });
+
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.section-title, .project-card, .highlight-item, .skill-category, .contact-link');
+      
+      animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+      });
     });
   </script>
 </body>
