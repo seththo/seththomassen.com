@@ -451,21 +451,23 @@ section {
 
 .photos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .photo-item {
   background: white;
-  border-radius: 4px;
-  overflow: hidden;
+  border-radius: 8px;
+  padding: 1rem;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .photo-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
 .photo-placeholder {
@@ -489,7 +491,7 @@ section {
 }
 
 .photo-description {
-  padding: 0.5rem;
+  padding: 0.5rem 0 0 0;
 }
 
 .photo-description p {
