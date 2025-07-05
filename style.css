@@ -451,26 +451,25 @@ section {
 
 .photos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .photo-item {
-  background: #f7fafc;
-  border-radius: 8px;
+  background: white;
+  border-radius: 4px;
   overflow: hidden;
   border: 1px solid #e2e8f0;
 }
 
 .photo-image {
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 8px 8px 0 0;
 }
 
 .photo-placeholder {
-  height: 250px;
+  height: 200px;
   background: #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -480,23 +479,24 @@ section {
 }
 
 .photo-placeholder span {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .photo-placeholder p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #a0aec0;
 }
 
 .photo-description {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .photo-description p {
   color: #718096;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  margin: 0;
 }
 
 /* Books Section */
