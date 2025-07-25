@@ -2,6 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Script loaded');
   
+  // Ensure scrolling is always enabled
+  document.body.style.overflowY = 'auto';
+  document.body.style.overflowX = 'hidden';
+  document.documentElement.style.overflowY = 'auto';
+  document.documentElement.style.overflowX = 'hidden';
+  
   const navLinks = document.querySelectorAll('.nav-link');
   console.log('Found nav links:', navLinks.length);
   
@@ -180,6 +186,9 @@ function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
   if (lightbox) {
     lightbox.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    // Ensure scrolling is always restored
+    document.body.style.overflow = '';
+    document.body.style.overflowY = 'auto';
+    document.body.style.overflowX = 'hidden';
   }
 } 

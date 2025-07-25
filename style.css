@@ -5,9 +5,16 @@
   box-sizing: border-box;
 }
 
+/* Ensure scrolling is always enabled */
+html, body {
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
 html {
   scroll-behavior: smooth;
-  height: auto;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -30,6 +37,7 @@ body {
 .layout {
   display: flex;
   min-height: 100vh;
+  height: auto;
 }
 
 /* Sidebar */
@@ -133,6 +141,8 @@ body {
   margin-left: 260px;
   background: #ffffff;
   min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
 }
 
 .content-wrapper {
@@ -241,6 +251,45 @@ body {
 
 .skills-note a:hover {
   text-decoration: underline;
+}
+
+/* Experience Section */
+.experience-info {
+  padding: 1.5rem 0;
+}
+
+.experience-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.experience-info h3:first-child {
+  margin-top: 0;
+}
+
+.experience-info p {
+  margin-bottom: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+/* Interests Section */
+.interests-info {
+  padding: 1.5rem 0;
+}
+
+.interests-info p {
+  margin-bottom: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+.interests-info strong {
+  color: #2d3748;
+  font-weight: 600;
 }
 
 /* Contact Section - Natural Style */
@@ -614,11 +663,13 @@ body {
 
 /* Loading state */
 body:not(.loaded) {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body.loaded {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Resume Section */
