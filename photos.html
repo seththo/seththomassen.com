@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>st - Photos</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Arial, sans-serif' font-weight='bold' fill='%234a90e2'>st</text></svg>">
+  <title>Photos - Seth Thomassen</title>
   <link rel="stylesheet" href="style.css" />
   
   <!-- Google tag (gtag.js) -->
@@ -21,194 +20,127 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="index.html">Seth Thomassen</a>
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="index.html#about" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#experience" class="nav-link">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#projects" class="nav-link">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a href="photos.html" class="nav-link">Photos</a>
-        </li>
-        <li class="nav-item">
-          <a href="books.html" class="nav-link">Books</a>
-        </li>
-        <li class="nav-item">
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-  </nav>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="profile">
+          <h1 class="name"><a href="index.html">Seth Thomassen</a></h1>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a href="index.html#about" class="nav-link">
+            <span class="nav-text">About</span>
+          </a>
+          <a href="index.html#education" class="nav-link">
+            <span class="nav-text">Education</span>
+          </a>
+          <a href="index.html#skills" class="nav-link">
+            <span class="nav-text">Skills</span>
+          </a>
+          <a href="photos.html" class="nav-link active">
+            <span class="nav-text">Photos</span>
+          </a>
+          <a href="resume.html" class="nav-link">
+            <span class="nav-text">Resume</span>
+          </a>
+          <a href="index.html#contact" class="nav-link">
+            <span class="nav-text">Contact</span>
+          </a>
+        </nav>
 
-  <main>
-    <!-- Photos Section -->
-    <section class="photos">
-      <div class="container">
-        <h2 class="section-title">Photos</h2>
-        <div class="photos-grid">
-          <div class="photo-item" onclick="openLightbox('photos/000040.jpg', 'Photo 1')">
-            <img src="photos/000040.jpg" alt="Photo 1" class="photo-image">
-            <div class="photo-overlay"></div>
+        <div class="sidebar-footer">
+          <div class="social-links">
+            <a href="https://linkedin.com/in/seth-thomassen" target="_blank" class="social-link">
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:seththomassen1@gmail.com" class="social-link">
+              <span>Email</span>
+            </a>
           </div>
-          <div class="photo-item" onclick="openLightbox('photos/000045.jpg', 'Photo 2')">
-            <img src="photos/000045.jpg" alt="Photo 2" class="photo-image">
-            <div class="photo-overlay"></div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000044.jpg', 'Photo 3')">
-            <img src="photos/000044.jpg" alt="Photo 3" class="photo-image">
-            <div class="photo-overlay"></div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000066.jpg', 'Photo 4')">
-            <img src="photos/000066.jpg" alt="Photo 4" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000065.jpg', 'Photo 5')">
-            <img src="photos/000065.jpg" alt="Photo 5" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000060.jpg', 'Photo 6')">
-            <img src="photos/000060.jpg" alt="Photo 6" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000043.jpg', 'Photo 7')">
-            <img src="photos/000043.jpg" alt="Photo 7" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000068.jpg', 'Photo 8')">
-            <img src="photos/000068.jpg" alt="Photo 8" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000005.jpg', 'Photo 9')">
-            <img src="photos/000005.jpg" alt="Photo 9" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000038870021.jpg', 'Photo 10')">
-            <img src="photos/000038870021.jpg" alt="Photo 10" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000056450029.jpg', 'Photo 11')">
-            <img src="photos/000056450029.jpg" alt="Photo 11" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-065-31.jpg', 'Photo 12')">
-            <img src="photos/GO5107008727-R1-065-31.jpg" alt="Photo 12" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-023-10.jpg', 'Photo 13')">
-            <img src="photos/GO5107008727-R1-023-10.jpg" alt="Photo 13" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-009-3.jpg', 'Photo 14')">
-            <img src="photos/GO5107008727-R1-009-3.jpg" alt="Photo 14" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/GJ0024003357-R1-034-15A.jpg', 'Photo 15')">
-            <img src="photos/GJ0024003357-R1-034-15A.jpg" alt="Photo 15" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/GI3837002982-R1-053-25.jpg', 'Photo 16')">
-            <img src="photos/GI3837002982-R1-053-25.jpg" alt="Photo 16" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000037880015.jpg', 'Photo 17')">
-            <img src="photos/000037880015.jpg" alt="Photo 17" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
-            </div>
-          </div>
-          <div class="photo-item" onclick="openLightbox('photos/000023600016.jpg', 'Photo 18')">
-            <img src="photos/000023600016.jpg" alt="Photo 18" class="photo-image">
-            <div class="photo-overlay">
-              <span class="view-icon">🔍</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="content-flow">
+          <div class="section-block">
+            <h2 class="section-title">Photos</h2>
+            <p class="photos-tip">Click on any photo to view it larger</p>
+            <div class="photos-grid">
+              <div class="photo-item" onclick="openLightbox('photos/000040.jpg', 'Photo 1')">
+                <img src="photos/000040.jpg" alt="Photo 1" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000045.jpg', 'Photo 2')">
+                <img src="photos/000045.jpg" alt="Photo 2" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000044.jpg', 'Photo 3')">
+                <img src="photos/000044.jpg" alt="Photo 3" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000066.jpg', 'Photo 4')">
+                <img src="photos/000066.jpg" alt="Photo 4" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000065.jpg', 'Photo 5')">
+                <img src="photos/000065.jpg" alt="Photo 5" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000060.jpg', 'Photo 6')">
+                <img src="photos/000060.jpg" alt="Photo 6" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000043.jpg', 'Photo 7')">
+                <img src="photos/000043.jpg" alt="Photo 7" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000068.jpg', 'Photo 8')">
+                <img src="photos/000068.jpg" alt="Photo 8" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000005.jpg', 'Photo 9')">
+                <img src="photos/000005.jpg" alt="Photo 9" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000023600016.jpg', 'Photo 10')">
+                <img src="photos/000023600016.jpg" alt="Photo 10" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000037880015.jpg', 'Photo 11')">
+                <img src="photos/000037880015.jpg" alt="Photo 11" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000038870021.jpg', 'Photo 12')">
+                <img src="photos/000038870021.jpg" alt="Photo 12" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/000056450029.jpg', 'Photo 13')">
+                <img src="photos/000056450029.jpg" alt="Photo 13" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-023-10.jpg', 'Photo 14')">
+                <img src="photos/GO5107008727-R1-023-10.jpg" alt="Photo 14" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-065-31.jpg', 'Photo 15')">
+                <img src="photos/GO5107008727-R1-065-31.jpg" alt="Photo 15" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-009-3.jpg', 'Photo 16')">
+                <img src="photos/GO5107008727-R1-009-3.jpg" alt="Photo 16" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/GI3837002982-R1-053-25.jpg', 'Photo 17')">
+                <img src="photos/GI3837002982-R1-053-25.jpg" alt="Photo 17" class="photo-image">
+              </div>
+              <div class="photo-item" onclick="openLightbox('photos/GJ0024003357-R1-034-15A.jpg', 'Photo 18')">
+                <img src="photos/GJ0024003357-R1-034-15A.jpg" alt="Photo 18" class="photo-image">
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </main>
+  </div>
 
   <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content">
-      <span class="close-lightbox">&times;</span>
+      <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
       <img id="lightbox-image" src="" alt="">
       <div class="lightbox-caption"></div>
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Seth Thomassen. Passionate about data, marketing, and meaningful connections.</p>
-    </div>
-  </footer>
-
   <script>
-    // Mobile navigation toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-    }));
-
-    // Add navbar background on scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Lightbox functionality
     function openLightbox(imageSrc, caption) {
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
@@ -219,22 +151,14 @@
       lightbox.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
-
+    
     function closeLightbox() {
       const lightbox = document.getElementById('lightbox');
       lightbox.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
-
-    // Close lightbox when clicking close button or outside the image
-    document.querySelector('.close-lightbox').addEventListener('click', closeLightbox);
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeLightbox();
-      }
-    });
-
-    // Close lightbox with Escape key
+    
+    // Close lightbox when pressing Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeLightbox();
