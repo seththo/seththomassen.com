@@ -7,7 +7,9 @@
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -17,7 +19,9 @@ body {
   background-color: #ffffff;
   font-size: 16px;
   overflow-x: hidden;
+  overflow-y: auto;
   min-height: 100vh;
+  height: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
 }
@@ -415,9 +419,10 @@ body {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   html, body {
-    height: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
   }
   
   .layout {
@@ -514,9 +519,10 @@ body {
 
 @media (max-width: 480px) {
   html, body {
-    height: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
   }
   
   .sidebar-content {

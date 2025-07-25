@@ -169,7 +169,10 @@ function openLightbox(imageSrc, caption) {
     lightboxImage.src = imageSrc;
     lightboxCaption.textContent = caption;
     lightbox.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    // Don't hide body overflow on mobile
+    if (window.innerWidth > 768) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 }
 
