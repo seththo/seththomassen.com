@@ -414,9 +414,16 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
   .layout {
     flex-direction: column;
-    min-height: 100vh;
+    min-height: auto;
+    height: auto;
   }
   
   .sidebar {
@@ -425,6 +432,7 @@ body {
     position: relative;
     border-right: none;
     border-bottom: 1px solid #e2e8f0;
+    overflow-y: visible;
   }
   
   .sidebar-content {
@@ -432,6 +440,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    height: auto;
   }
   
   .profile {
@@ -462,6 +471,7 @@ body {
     margin-left: 0;
     flex: 1;
     min-height: auto;
+    height: auto;
     overflow-y: visible;
   }
   
@@ -503,10 +513,17 @@ body {
 }
 
 @media (max-width: 480px) {
+  html, body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
   .sidebar-content {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    height: auto;
   }
   
   .name {
@@ -546,6 +563,7 @@ body {
   }
   
   .main-content {
+    height: auto;
     overflow-y: visible;
   }
   
