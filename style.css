@@ -7,6 +7,7 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -16,7 +17,9 @@ body {
   background-color: #ffffff;
   font-size: 16px;
   overflow-x: hidden;
-  height: 100%;
+  min-height: 100vh;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 /* Layout */
@@ -126,8 +129,6 @@ body {
   margin-left: 260px;
   background: #ffffff;
   min-height: 100vh;
-  overflow-y: auto;
-  height: 100vh;
 }
 
 .content-wrapper {
@@ -415,6 +416,7 @@ body {
 @media (max-width: 768px) {
   .layout {
     flex-direction: column;
+    min-height: 100vh;
   }
   
   .sidebar {
@@ -458,6 +460,9 @@ body {
   
   .main-content {
     margin-left: 0;
+    flex: 1;
+    min-height: auto;
+    overflow-y: visible;
   }
   
   .content-wrapper {
@@ -538,6 +543,10 @@ body {
   
   .contact-link {
     padding: 8px 0;
+  }
+  
+  .main-content {
+    overflow-y: visible;
   }
   
   .photos-grid {
