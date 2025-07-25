@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>st - Seth Thomassen</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Arial, sans-serif' font-weight='bold' fill='%234a90e2'>st</text></svg>">
+  <title>Seth Thomassen</title>
   <link rel="stylesheet" href="style.css" />
   
   <!-- Google tag (gtag.js) -->
@@ -21,375 +20,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="profile-section">
-        <div class="profile-image">
-          <div class="profile-placeholder">ST</div>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="profile">
+          <h1 class="name">Seth Thomassen</h1>
         </div>
-        <h2 class="profile-name">Seth Thomassen</h2>
-        <p class="profile-title">Marketing Analyst & Data Enthusiast</p>
-      </div>
-    </div>
-    
-    <nav class="sidebar-nav">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="#home" class="nav-link active">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-text">Home</span>
-          </a>
-        </li>
-        <li class="nav-item">
+        
+        <nav class="sidebar-nav">
           <a href="#about" class="nav-link">
-            <span class="nav-icon">👤</span>
             <span class="nav-text">About</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="#experience" class="nav-link">
-            <span class="nav-icon">💼</span>
-            <span class="nav-text">Experience</span>
+          <a href="#education" class="nav-link">
+            <span class="nav-text">Education</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="#projects" class="nav-link">
-            <span class="nav-icon">🚀</span>
-            <span class="nav-text">Projects</span>
+          <a href="#skills" class="nav-link">
+            <span class="nav-text">Skills</span>
           </a>
-        </li>
-        <li class="nav-item">
           <a href="photos.html" class="nav-link">
-            <span class="nav-icon">📸</span>
             <span class="nav-text">Photos</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="books.html" class="nav-link">
-            <span class="nav-icon">📚</span>
-            <span class="nav-text">Books</span>
+          <a href="resume.html" class="nav-link">
+            <span class="nav-text">Resume</span>
           </a>
-        </li>
-        <li class="nav-item">
           <a href="#contact" class="nav-link">
-            <span class="nav-icon">📧</span>
             <span class="nav-text">Contact</span>
           </a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="sidebar-footer">
-      <div class="social-links">
-        <a href="https://linkedin.com/in/seththomassen" target="_blank" class="social-link">LinkedIn</a>
-        <a href="mailto:seththomassen@gmail.com" class="social-link">Email</a>
-      </div>
-      <div class="resume-link">
-        <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" class="resume-btn">📄 Resume</a>
-      </div>
-    </div>
-  </aside>
+        </nav>
 
-  <!-- Mobile menu toggle -->
-  <div class="mobile-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
+        <div class="sidebar-footer">
+          <div class="social-links">
+            <a href="https://linkedin.com/in/seth-thomassen" target="_blank" class="social-link">
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:seththomassen1@gmail.com" class="social-link">
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="content-flow">
+          <div class="section-block">
+            <h2 class="section-title">About</h2>
+            <p class="about-text">
+              I'm a recent graduate from the University of Massachusetts Amherst's Isenberg School of Management, 
+              where I earned my Bachelor of Business Administration in Marketing with a 3.4 GPA and Dean's List recognition.
+              My academic journey was enriched with a Business Analytics Certificate and coursework in machine learning, 
+              R programming, and digital marketing.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title">Education</h2>
+            <div class="education-info">
+              <h3>University of Massachusetts Amherst</h3>
+              <p>Bachelor of Business Administration - Marketing</p>
+              <p>GPA: 3.4/4.0</p>
+              <p>Isenberg School of Management • Dean's List Recognition</p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-info">
+              <p><strong>Programming & Analytics:</strong> R Programming, Python, SQL, Excel, Tableau</p>
+              <p><strong>Marketing & Business:</strong> Digital Marketing, Market Research, Data Analysis, Business Analytics, Google Analytics</p>
+              <p><strong>Machine Learning & AI:</strong> Machine Learning, Predictive Modeling, Statistical Analysis, Data Visualization</p>
+              <p><strong>Tools & Platforms:</strong> Google Ads, Facebook Ads, HubSpot, Salesforce, PowerPoint</p>
+              <p class="skills-note">For detailed experience and additional skills, view my <a href="resume.html">resume</a>.</p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+              <a href="mailto:seththomassen1@gmail.com" class="contact-link">
+                <span class="contact-text">seththomassen1@gmail.com</span>
+              </a>
+              <a href="https://linkedin.com/in/seth-thomassen" target="_blank" class="contact-link">
+                <span class="contact-text">LinkedIn</span>
+              </a>
+              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" class="contact-link">
+                <span class="contact-text">Resume</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-
-  <!-- Main content -->
-  <main class="main-content">
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="hero-greeting">
-          <h1 class="hero-title">Hey there! 👋</h1>
-          <p class="hero-subtitle">I'm Seth, and I love turning data into stories that matter.</p>
-        </div>
-        
-        <div class="hero-description">
-          <p>
-            UMass Amherst grad with a passion for marketing analytics and creative problem-solving. 
-            I believe the best insights come from combining hard data with human intuition.
-          </p>
-        </div>
-        
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">3.4</span>
-            <span class="stat-label">GPA</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">4+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-decoration">✦</div>
-      </div>
-      
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            I'm a recent graduate from the University of Massachusetts Amherst's Isenberg School of Management, 
-            where I earned my Bachelor of Business Administration in Marketing with a 3.4 GPA and Dean's List recognition.
-            My academic journey was enriched with a Business Analytics Certificate and coursework in machine learning, 
-            R programming, and digital marketing.
-          </p>
-        </div>
-        
-        <div class="education-section">
-          <h3>Education</h3>
-          <div class="education-item">
-            <div class="education-header">
-              <div class="education-logos">
-                <div class="logo-container">
-                  <img src="isenberg.jpeg" alt="Isenberg School of Management" class="isenberg-logo-img">
-                </div>
-              </div>
-              <div class="education-info">
-                <h4>Bachelor of Business Administration - Marketing</h4>
-                <p>University of Massachusetts Amherst, Isenberg School of Management</p>
-                <div class="education-details">
-                  <div class="detail-item">
-                    <span class="detail-label">GPA:</span>
-                    <span class="detail-value">3.4/4.0</span>
-                  </div>
-                  <div class="detail-item">
-                    <span class="detail-label">Graduation:</span>
-                    <span class="detail-value">May 2024</span>
-                  </div>
-                  <div class="detail-item">
-                    <span class="detail-label">Honors:</span>
-                    <span class="detail-value">Dean's List</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="education-highlights">
-              <h4>Key Achievements & Certifications</h4>
-              <ul>
-                <li>Business Analytics Certificate</li>
-                <li>Machine Learning Coursework</li>
-                <li>R Programming Proficiency</li>
-                <li>Digital Marketing Specialization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="about-highlights">
-          <div class="highlight-item">
-            <div class="highlight-icon">📊</div>
-            <h3>Data-Driven</h3>
-            <p>I love finding patterns in data and turning them into actionable insights</p>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">🎯</div>
-            <h3>Results-Focused</h3>
-            <p>Every project I work on has clear goals and measurable outcomes</p>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">🤝</div>
-            <h3>Collaborative</h3>
-            <p>I believe the best solutions come from working together with diverse teams</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-      <div class="section-header">
-        <h2 class="section-title">Experience</h2>
-        <div class="section-decoration">✦</div>
-      </div>
-      
-      <div class="experience-timeline">
-        <div class="experience-item">
-          <div class="experience-marker"></div>
-          <div class="experience-content">
-            <div class="job-header">
-              <h3>Marketing Analyst</h3>
-              <div class="company">Company Name</div>
-              <div class="date">2023 - Present</div>
-            </div>
-            <div class="job-description">
-              <ul>
-                <li>Analyzed customer behavior data to identify trends and opportunities</li>
-                <li>Created comprehensive marketing reports and dashboards</li>
-                <li>Collaborated with cross-functional teams to optimize campaigns</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="experience-item">
-          <div class="experience-marker"></div>
-          <div class="experience-content">
-            <div class="job-header">
-              <h3>Data Analyst Intern</h3>
-              <div class="company">Previous Company</div>
-              <div class="date">2022 - 2023</div>
-            </div>
-            <div class="job-description">
-              <ul>
-                <li>Processed and cleaned large datasets for analysis</li>
-                <li>Built predictive models using R and Python</li>
-                <li>Presented findings to stakeholders and management</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-decoration">✦</div>
-      </div>
-      
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <div class="dashboard-placeholder"></div>
-          </div>
-          <div class="project-content">
-            <h3>Marketing Dashboard</h3>
-            <p>A comprehensive analytics dashboard that tracks key marketing metrics and provides real-time insights for campaign optimization.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Tableau</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">Python</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <div class="analytics-placeholder"></div>
-          </div>
-          <div class="project-content">
-            <h3>Customer Segmentation Analysis</h3>
-            <p>Developed a machine learning model to segment customers based on purchasing behavior, leading to targeted marketing strategies.</p>
-            <div class="project-tech">
-              <span class="tech-tag">R</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">Statistics</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-placeholder"></div>
-          </div>
-          <div class="project-content">
-            <h3>Digital Marketing Campaign</h3>
-            <p>Designed and executed a multi-channel digital marketing campaign that increased brand awareness by 40%.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Google Ads</span>
-              <span class="tech-tag">Social Media</span>
-              <span class="tech-tag">Analytics</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="section-header">
-        <h2 class="section-title">Skills</h2>
-        <div class="section-decoration">✦</div>
-      </div>
-      
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Analytics & Data</h4>
-          <div class="skill-items">
-            <span class="skill-item">R Programming</span>
-            <span class="skill-item">Python</span>
-            <span class="skill-item">SQL</span>
-            <span class="skill-item">Tableau</span>
-            <span class="skill-item">Excel</span>
-            <span class="skill-item">Statistics</span>
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h4>Marketing</h4>
-          <div class="skill-items">
-            <span class="skill-item">Digital Marketing</span>
-            <span class="skill-item">Google Ads</span>
-            <span class="skill-item">Social Media</span>
-            <span class="skill-item">Content Strategy</span>
-            <span class="skill-item">Brand Management</span>
-            <span class="skill-item">Market Research</span>
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h4>Tools & Platforms</h4>
-          <div class="skill-items">
-            <span class="skill-item">Google Analytics</span>
-            <span class="skill-item">HubSpot</span>
-            <span class="skill-item">Salesforce</span>
-            <span class="skill-item">Adobe Creative Suite</span>
-            <span class="skill-item">Canva</span>
-            <span class="skill-item">WordPress</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="section-decoration">✦</div>
-      </div>
-      
-      <div class="contact-content">
-        <div class="contact-text">
-          <p>
-            I'm always interested in new opportunities and collaborations. 
-            Whether you have a project in mind or just want to chat about data and marketing, 
-            I'd love to hear from you!
-          </p>
-        </div>
-        
-        <div class="contact-links">
-          <a href="mailto:seththomassen@gmail.com" class="contact-link">
-            <span class="contact-icon">📧</span>
-            <span class="contact-text">seththomassen@gmail.com</span>
-          </a>
-          <a href="https://linkedin.com/in/seththomassen" target="_blank" class="contact-link">
-            <span class="contact-icon">💼</span>
-            <span class="contact-text">LinkedIn</span>
-          </a>
-          <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" class="contact-link">
-            <span class="contact-icon">📄</span>
-            <span class="contact-text">Download Resume</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
 
   <script src="script.js"></script>
 </body>
