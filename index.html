@@ -2,8 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seth Thomassen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="description" content="Seth Thomassen - Marketing Professional and Business Analytics Specialist. Recent graduate from UMass Amherst's Isenberg School of Management with expertise in digital marketing, data analysis, and machine learning." />
+  <meta name="keywords" content="Seth Thomassen, Marketing, Business Analytics, Digital Marketing, Data Analysis, Machine Learning, UMass Amherst, Isenberg School of Management" />
+  <meta name="author" content="Seth Thomassen" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seththomassen.com/" />
+  <meta property="og:title" content="Seth Thomassen - Marketing Professional" />
+  <meta property="og:description" content="Marketing professional and business analytics specialist with expertise in digital marketing, data analysis, and machine learning." />
+  <meta property="og:image" content="https://seththomassen.com/isenberg.jpeg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://seththomassen.com/" />
+  <meta property="twitter:title" content="Seth Thomassen - Marketing Professional" />
+  <meta property="twitter:description" content="Marketing professional and business analytics specialist with expertise in digital marketing, data analysis, and machine learning." />
+  <meta property="twitter:image" content="https://seththomassen.com/isenberg.jpeg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  
+  <title>Seth Thomassen - Marketing Professional & Business Analytics Specialist</title>
   <link rel="stylesheet" href="style.css" />
   
   <!-- Google tag (gtag.js) -->
@@ -15,58 +40,48 @@
 
     gtag('config', 'G-7XEY9VPQ5F');
   </script>
+  
+  <!-- Preconnect to external domains for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
 </head>
 <body>
   <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-content">
-        <div class="profile">
-          <h1 class="name">Seth Thomassen</h1>
-        </div>
+    <!-- Top Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar-content">
+        <!-- Name in left corner -->
+        <a href="index.html" class="name" aria-label="Homepage">Seth Thomassen</a>
         
-        <nav class="sidebar-nav">
-          <a href="#about" class="nav-link">
-            <span class="nav-text">About</span>
-          </a>
-          <a href="#education" class="nav-link">
-            <span class="nav-text">Education</span>
-          </a>
-          <a href="#skills" class="nav-link">
-            <span class="nav-text">Skills</span>
-          </a>
-          <a href="photos.html" class="nav-link">
-            <span class="nav-text">Photos</span>
-          </a>
-          <a href="resume.html" class="nav-link">
-            <span class="nav-text">Resume</span>
-          </a>
-          <a href="#contact" class="nav-link">
-            <span class="nav-text">Contact</span>
-          </a>
-        </nav>
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link" aria-label="Go to About section">About</a></li>
+          <li><a href="#education" class="nav-link" aria-label="Go to Education section">Education</a></li>
+          <li><a href="#skills" class="nav-link" aria-label="Go to Skills section">Skills</a></li>
+          <li><a href="#projects" class="nav-link" aria-label="Go to Projects section">Projects</a></li>
+          <li><a href="photos.html" class="nav-link" aria-label="View Photos">Photos</a></li>
+          <li><a href="resume.html" class="nav-link" aria-label="View Resume">Resume</a></li>
+          <li><a href="#contact" class="nav-link" aria-label="Go to Contact section">Contact</a></li>
+        </ul>
 
-        <div class="sidebar-footer">
-          <div class="social-links">
-            <a href="https://linkedin.com/in/seth-thomassen" target="_blank" class="social-link">
-              <span>LinkedIn</span>
-            </a>
-            <a href="mailto:seththomassen1@gmail.com" class="social-link">
-              <span>Email</span>
-            </a>
-          </div>
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit LinkedIn profile">LinkedIn</a>
+          <a href="mailto:seththomassen1@gmail.com" class="social-link" aria-label="Send email">Email</a>
         </div>
       </div>
-    </aside>
+    </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" role="main">
       <div class="content-wrapper">
         <div class="content-flow">
-          <div class="section-block">
+          <section id="about" class="section-block">
             <h2 class="section-title">About</h2>
             <p class="about-text">
               I'm a recent graduate from the University of Massachusetts Amherst's Isenberg School of Management, 
@@ -74,9 +89,9 @@
               My academic journey was enriched with a Business Analytics Certificate and coursework in machine learning, 
               R programming, and digital marketing.
             </p>
-          </div>
+          </section>
 
-          <div class="section-block">
+          <section id="education" class="section-block">
             <h2 class="section-title">Education</h2>
             <div class="education-info">
               <h3>University of Massachusetts Amherst</h3>
@@ -84,9 +99,9 @@
               <p>GPA: 3.4/4.0</p>
               <p>Isenberg School of Management • Dean's List Recognition</p>
             </div>
-          </div>
+          </section>
 
-          <div class="section-block">
+          <section id="skills" class="section-block">
             <h2 class="section-title">Skills</h2>
             <div class="skills-info">
               <p><strong>Programming & Analytics:</strong> R Programming, Python, SQL, Excel, Tableau</p>
@@ -95,22 +110,46 @@
               <p><strong>Tools & Platforms:</strong> Google Ads, Facebook Ads, HubSpot, Salesforce, PowerPoint</p>
               <p class="skills-note">For detailed experience and additional skills, view my <a href="resume.html">resume</a>.</p>
             </div>
-          </div>
+            
+            <div class="resume-button-container">
+              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" class="prominent-resume-button" aria-label="Download Resume PDF">
+                View My Resume
+              </a>
+            </div>
+          </section>
 
-          <div class="section-block">
+          <section id="projects" class="section-block">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-info">
+              <div class="project-item">
+                <h3>Anoushka Bhardwaj Website</h3>
+                <p class="project-description">
+                  Designed and developed a professional personal website for Anoushka Bhardwaj, 
+                  featuring modern design principles, responsive layout, and optimized user experience.
+                </p>
+                <div class="project-links">
+                  <a href="https://anoushkabhardwaj.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Anoushka Bhardwaj's website">
+                    Visit Website
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" class="section-block">
             <h2 class="section-title">Contact</h2>
             <div class="contact-info">
-              <a href="mailto:seththomassen1@gmail.com" class="contact-link">
+              <a href="mailto:seththomassen1@gmail.com" class="contact-link" aria-label="Send email to seththomassen1@gmail.com">
                 <span class="contact-text">seththomassen1@gmail.com</span>
               </a>
-              <a href="https://linkedin.com/in/seth-thomassen" target="_blank" class="contact-link">
+              <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit LinkedIn profile">
                 <span class="contact-text">LinkedIn</span>
               </a>
-              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" class="contact-link">
+              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Download Resume PDF">
                 <span class="contact-text">Resume</span>
               </a>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </main>
