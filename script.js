@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeNavigation();
   initializeTypingEffect();
   initializeParallaxEffects();
+  initializeAnalytics();
 });
 
 // Smooth animations and transitions
@@ -274,4 +275,94 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('ontouchstart' in window) {
     cursor.style.display = 'none';
   }
-}); 
+});
+
+// Enhanced Analytics Tracking
+function initializeAnalytics() {
+  // Track page views
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  }
+
+  // Track button clicks
+  document.querySelectorAll('a, button').forEach(element => {
+    element.addEventListener('click', function(e) {
+      const linkText = this.textContent.trim();
+      const linkUrl = this.href || this.getAttribute('href');
+      
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'engagement',
+          event_label: linkText,
+          link_url: linkUrl
+        });
+      }
+    });
+  });
+
+  // Track scroll depth
+  let maxScroll = 0;
+  window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+      
+      // Track scroll milestones
+      if (scrollPercent >= 25 && maxScroll < 50) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: '25% scroll depth'
+          });
+        }
+      } else if (scrollPercent >= 50 && maxScroll < 75) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: '50% scroll depth'
+          });
+        }
+      } else if (scrollPercent >= 75 && maxScroll < 100) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: '75% scroll depth'
+          });
+        }
+      } else if (scrollPercent >= 100) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: '100% scroll depth'
+          });
+        }
+      }
+    }
+  });
+
+  // Track time on page
+  let startTime = Date.now();
+  window.addEventListener('beforeunload', () => {
+    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'timing_complete', {
+        name: 'page_view_time',
+        value: timeOnPage
+      });
+    }
+  });
+
+  // Track form interactions (if any forms are added later)
+  document.addEventListener('submit', function(e) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'form_submit', {
+        event_category: 'engagement',
+        event_label: e.target.id || 'contact_form'
+      });
+    }
+  });
+} 
