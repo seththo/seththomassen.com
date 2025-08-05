@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeTypingEffect();
   initializeParallaxEffects();
   initializeAnalytics();
+  initializeMobileScrolling();
 });
 
 // Smooth animations and transitions
@@ -364,5 +365,64 @@ function initializeAnalytics() {
         event_label: e.target.id || 'contact_form'
       });
     }
+  });
+} 
+
+// Mobile scrolling optimizations
+function initializeMobileScrolling() {
+  // Prevent zoom on double tap
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, false);
+
+  // Improve scroll performance on mobile
+  let ticking = false;
+  function updateScroll() {
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Smooth scroll for mobile
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offsetTop = target.offsetTop - 100; // Account for fixed navbar
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Prevent horizontal scroll on mobile
+  document.addEventListener('touchmove', function(e) {
+    if (e.touches.length > 1) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Improve touch interactions
+  document.querySelectorAll('.nav-link, .social-link, .contact-link, .project-link, .prominent-resume-button').forEach(element => {
+    element.addEventListener('touchstart', function() {
+      this.style.transform = 'scale(0.98)';
+    }, { passive: true });
+    
+    element.addEventListener('touchend', function() {
+      this.style.transform = 'scale(1)';
+    }, { passive: true });
   });
 } 
