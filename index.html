@@ -2,34 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
-  <meta name="description" content="Seth Thomassen - Marketing Professional and Business Analytics Specialist. Recent graduate from UMass Amherst's Isenberg School of Management with expertise in digital marketing, data analysis, and machine learning." />
-  <meta name="keywords" content="Seth Thomassen, Marketing, Business Analytics, Digital Marketing, Data Analysis, Machine Learning, UMass Amherst, Isenberg School of Management" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Seth Thomassen - Marketing Professional & Business Analytics Specialist." />
+  <meta name="keywords" content="Seth Thomassen, Marketing, Business Analytics, Digital Marketing, Portfolio, Professional" />
   <meta name="author" content="Seth Thomassen" />
   <meta name="robots" content="index, follow" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://seththomassen.com/" />
-  <meta property="og:title" content="Seth Thomassen - Marketing Professional" />
-  <meta property="og:description" content="Marketing professional and business analytics specialist with expertise in digital marketing, data analysis, and machine learning." />
+  <meta property="og:title" content="Seth Thomassen" />
+  <meta property="og:description" content="Marketing professional with expertise in business analytics." />
   <meta property="og:image" content="https://seththomassen.com/isenberg.jpeg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://seththomassen.com/" />
-  <meta property="twitter:title" content="Seth Thomassen - Marketing Professional" />
-  <meta property="twitter:description" content="Marketing professional and business analytics specialist with expertise in digital marketing, data analysis, and machine learning." />
+  <meta property="twitter:title" content="Seth Thomassen" />
+  <meta property="twitter:description" content="Marketing professional with expertise in business analytics." />
   <meta property="twitter:image" content="https://seththomassen.com/isenberg.jpeg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <!-- Removed non-existent favicon references -->
   
-  <title>Seth Thomassen - Marketing Professional & Business Analytics Specialist</title>
+  <title>Seth Thomassen</title>
   <link rel="stylesheet" href="style.css" />
   
   <!-- Google tag (gtag.js) -->
@@ -50,107 +47,326 @@
   <!-- Preload critical resources -->
   <link rel="preload" href="style.css" as="style" />
   <link rel="preload" href="script.js" as="script" />
+  
+  <!-- p5.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
-  <div class="layout">
-    <!-- Top Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar-content">
-        <!-- Name in left corner -->
-        <a href="index.html" class="name" aria-label="Homepage">Seth Thomassen</a>
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-content">
+      <a href="index.html" class="name" aria-label="Homepage">Seth Thomassen</a>
+      
+      <ul class="nav-menu">
+        <li><a href="photos.html" class="nav-link">Photos</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="mailto:seththomassen1@gmail.com" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+        <a href="mailto:seththomassen1@gmail.com" class="social-link">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Seth Thomassen</h1>
+          <p class="hero-subtitle">Marketing Professional & Business Analytics Specialist</p>
+        </div>
+      </section>
+
+      <!-- About Me Section -->
+      <section class="about-section">
+        <div class="about-content">
+          <h2 class="section-title">About Me</h2>
+          <p class="about-text">
+            ...
+          </p>
+          
+          <div class="hero-actions">
+            <a href="resume.html" class="hero-button professional">
+              <span>Professional</span>
+            </a>
+            <a href="photos.html" class="hero-button creative">
+              <span>Creative</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Generative Art Section - Full Width -->
+    <section class="art-section">
+      <div id="canvas-container"></div>
+    </section>
+  </main>
+
+  <!-- Generative Art Script -->
+  <script>
+    // Check if p5.js is loaded
+    if (typeof p5 === 'undefined') {
+      console.error('p5.js library not loaded!');
+      document.getElementById('canvas-container').innerHTML = '<p style="color: red; text-align: center; padding: 20px;">Error: p5.js library not loaded. Please refresh the page.</p>';
+    } else {
+      console.log('p5.js library loaded successfully');
+    }
+
+    let particles = [];
+    let connections = [];
+    let time = 0;
+    let growthRate = 0.1;
+    let maxParticles = 200;
+    let maxConnections = 300;
+    
+    function setup() {
+      try {
+        console.log('Setting up cohesive generative art...');
+        const canvas = createCanvas(windowWidth, 600, WEBGL);
+        canvas.parent('canvas-container');
+        background(255);
         
-        <!-- Navigation Menu -->
-        <ul class="nav-menu">
-          <li><a href="#about" class="nav-link" aria-label="Go to About section">About</a></li>
-          <li><a href="photos.html" class="nav-link" aria-label="View Photos">Photos</a></li>
-          <li><a href="resume.html" class="nav-link" aria-label="View Resume">Resume</a></li>
-        </ul>
-
-        <!-- Social Links -->
-        <div class="social-links">
-          <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit LinkedIn profile">LinkedIn</a>
-          <a href="mailto:seththomassen1@gmail.com" class="social-link" aria-label="Send email">Email</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content" role="main">
-      <div class="content-wrapper">
-        <div class="content-flow">
-          <section id="about" class="section-block">
-            <h2 class="section-title">About</h2>
-            <p class="about-text">
-              I'm a recent graduate from the University of Massachusetts Amherst's Isenberg School of Management, 
-              where I earned my Bachelor of Business Administration in Marketing with a 3.4 GPA and Dean's List recognition.
-              My academic journey was enriched with a Business Analytics Certificate and coursework in machine learning, 
-              R programming, and digital marketing.
-            </p>
-          </section>
-
-          <section id="education" class="section-block">
-            <h2 class="section-title">Education</h2>
-            <div class="education-info">
-              <h3>University of Massachusetts Amherst</h3>
-              <p>Bachelor of Business Administration - Marketing</p>
-              <p>GPA: 3.4/4.0</p>
-              <p>Isenberg School of Management • Dean's List Recognition</p>
-            </div>
-          </section>
-
-          <section id="skills" class="section-block">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-info">
-              <p><strong>Programming & Analytics:</strong> R Programming, Python, SQL, Excel, Tableau</p>
-              <p><strong>Marketing & Business:</strong> Digital Marketing, Market Research, Data Analysis, Business Analytics, Google Analytics</p>
-              <p><strong>Machine Learning & AI:</strong> Machine Learning, Predictive Modeling, Statistical Analysis, Data Visualization</p>
-              <p><strong>Tools & Platforms:</strong> Google Ads, Facebook Ads, HubSpot, Salesforce, PowerPoint</p>
-              <p class="skills-note">For detailed experience and additional skills, view my <a href="resume.html">resume</a>.</p>
-            </div>
+        // Initialize starting particles
+        for (let i = 0; i < 20; i++) {
+          addParticle();
+        }
+        
+        console.log('Initial particles created:', particles.length);
+      } catch (error) {
+        console.error('Error in setup:', error);
+      }
+    }
+    
+    function addParticle() {
+      if (particles.length < maxParticles) {
+        particles.push({
+          x: random(-width/2, width/2),
+          y: random(-height/2, height/2),
+          z: random(-100, 100),
+          vx: random(-0.5, 0.5),
+          vy: random(-0.5, 0.5),
+          vz: random(-0.2, 0.2),
+          size: random(2, 8),
+          color: random(['#44ff44', '#000000', '#ffff44']),
+          alpha: random(100, 255),
+          life: 0,
+          maxLife: random(100, 500),
+          type: random(['circle', 'cube', 'star', 'triangle']),
+          rotation: random(TWO_PI),
+          rotationSpeed: random(-0.02, 0.02),
+          pulse: random(TWO_PI),
+          pulseSpeed: random(0.02, 0.08)
+        });
+      }
+    }
+    
+    function addConnection() {
+      if (connections.length < maxConnections && particles.length > 1) {
+        let p1 = random(particles);
+        let p2 = random(particles);
+        
+        // Make sure we don't connect a particle to itself
+        while (p2 === p1) {
+          p2 = random(particles);
+        }
+        
+        connections.push({
+          p1: p1,
+          p2: p2,
+          strength: random(0.1, 1.0),
+          color: random(['#44ff44', '#000000', '#ffff44']),
+          alpha: random(50, 150),
+          life: 0,
+          maxLife: random(200, 800)
+        });
+      }
+    }
+    
+    function draw() {
+      try {
+        // Clear with slight fade
+        fill(255, 15);
+        noStroke();
+        rect(-width/2, -height/2, width, height);
+        
+        time += 0.01;
+        
+        // Grow the system over time
+        if (random() < growthRate) {
+          addParticle();
+        }
+        
+        if (random() < growthRate * 2) {
+          addConnection();
+        }
+        
+        // Increase growth rate over time
+        growthRate = min(growthRate + 0.0001, 0.3);
+        
+        // Update and draw particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          let particle = particles[i];
+          
+          // Update position
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.z += particle.vz;
+          particle.life++;
+          particle.rotation += particle.rotationSpeed;
+          particle.pulse += particle.pulseSpeed;
+          
+          // Bounce off edges
+          if (particle.x < -width/2 || particle.x > width/2) {
+            particle.vx *= -1;
+          }
+          if (particle.y < -height/2 || particle.y > height/2) {
+            particle.vy *= -1;
+          }
+          if (particle.z < -100 || particle.z > 100) {
+            particle.vz *= -1;
+          }
+          
+          // Keep within bounds
+          particle.x = constrain(particle.x, -width/2, width/2);
+          particle.y = constrain(particle.y, -height/2, height/2);
+          particle.z = constrain(particle.z, -100, 100);
+          
+          // Remove old particles
+          if (particle.life > particle.maxLife) {
+            particles.splice(i, 1);
+            continue;
+          }
+          
+          // Calculate pulse effect
+          let pulseSize = sin(particle.pulse) * 2;
+          let currentSize = particle.size + pulseSize;
+          
+          // Draw particle based on type
+          push();
+          translate(particle.x, particle.y, particle.z);
+          rotate(particle.rotation);
+          
+          if (particle.type === 'circle') {
+            noFill();
+            stroke(particle.color + hex(particle.alpha, 2));
+            strokeWeight(1);
+            ellipse(0, 0, currentSize * 2);
+          } else if (particle.type === 'cube') {
+            noFill();
+            stroke(particle.color + hex(particle.alpha, 2));
+            strokeWeight(1);
+            box(currentSize);
+          } else if (particle.type === 'star') {
+            noFill();
+            stroke(particle.color + hex(particle.alpha, 2));
+            strokeWeight(1);
+            drawStar(0, 0, currentSize/2, currentSize/4, 5);
+          } else if (particle.type === 'triangle') {
+            noFill();
+            stroke(particle.color + hex(particle.alpha, 2));
+            strokeWeight(1);
+            triangle(0, -currentSize/2, -currentSize/2, currentSize/2, currentSize/2, currentSize/2);
+          }
+          
+          pop();
+        }
+        
+        // Update and draw connections
+        for (let i = connections.length - 1; i >= 0; i--) {
+          let connection = connections[i];
+          
+          connection.life++;
+          
+          // Remove old connections
+          if (connection.life > connection.maxLife) {
+            connections.splice(i, 1);
+            continue;
+          }
+          
+          // Calculate connection strength based on distance
+          let dx = connection.p1.x - connection.p2.x;
+          let dy = connection.p1.y - connection.p2.y;
+          let dz = connection.p1.z - connection.p2.z;
+          let distance = sqrt(dx*dx + dy*dy + dz*dz);
+          
+          // Only draw connections within a certain distance
+          if (distance < 150) {
+            let strength = map(distance, 0, 150, connection.strength, 0);
+            let alpha = connection.alpha * strength;
             
-            <div class="resume-button-container">
-              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" class="prominent-resume-button" aria-label="Download Resume PDF">
-                View My Resume
-              </a>
-            </div>
-          </section>
-
-          <section id="projects" class="section-block">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-info">
-              <div class="project-item">
-                <h3>Anoushka Bhardwaj Website</h3>
-                <p class="project-description">
-                  Designed and developed a professional personal website for Anoushka Bhardwaj, 
-                  featuring modern design principles, responsive layout, and optimized user experience.
-                </p>
-                <div class="project-links">
-                  <a href="https://anoushkabhardwaj.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Anoushka Bhardwaj's website">
-                    Visit Website
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="contact" class="section-block">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-info">
-              <a href="mailto:seththomassen1@gmail.com" class="contact-link" aria-label="Send email to seththomassen1@gmail.com">
-                <span class="contact-text">seththomassen1@gmail.com</span>
-              </a>
-              <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit LinkedIn profile">
-                <span class="contact-text">LinkedIn</span>
-              </a>
-              <a href="Seth_Thomassen_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Download Resume PDF">
-                <span class="contact-text">Resume</span>
-              </a>
-            </div>
-          </section>
-        </div>
-      </div>
-    </main>
-  </div>
+            stroke(connection.color + hex(alpha, 2));
+            strokeWeight(strength * 2);
+            line(connection.p1.x, connection.p1.y, connection.p1.z, 
+                 connection.p2.x, connection.p2.y, connection.p2.z);
+          }
+        }
+        
+        // Add some text elements that appear over time
+        if (time > 50 && random() < 0.01) {
+          addTextElement();
+        }
+        
+      } catch (error) {
+        console.error('Error in draw:', error);
+      }
+    }
+    
+    function addTextElement() {
+      if (particles.length < maxParticles) {
+        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        particles.push({
+          x: random(-width/2, width/2),
+          y: random(-height/2, height/2),
+          z: random(-50, 50),
+          vx: random(-0.3, 0.3),
+          vy: random(-0.3, 0.3),
+          vz: random(-0.1, 0.1),
+          size: random(12, 24),
+          color: random(['#44ff44', '#000000', '#ffff44']),
+          alpha: random(150, 255),
+          life: 0,
+          maxLife: random(300, 600),
+          type: 'text',
+          char: random(chars),
+          rotation: random(TWO_PI),
+          rotationSpeed: random(-0.01, 0.01),
+          pulse: random(TWO_PI),
+          pulseSpeed: random(0.02, 0.06)
+        });
+      }
+    }
+    
+    function drawStar(x, y, radius1, radius2, npoints) {
+      let angle = TWO_PI / npoints;
+      let halfAngle = angle / 2.0;
+      beginShape();
+      for (let a = 0; a < TWO_PI; a += angle) {
+        let sx = x + cos(a) * radius2;
+        let sy = y + sin(a) * radius2;
+        vertex(sx, sy);
+        sx = x + cos(a + halfAngle) * radius1;
+        sy = y + sin(a + halfAngle) * radius1;
+        vertex(sx, sy);
+      }
+      endShape(CLOSE);
+    }
+    
+    function windowResized() {
+      resizeCanvas(windowWidth, 600, WEBGL);
+      background(255);
+    }
+    
+    function keyPressed() {
+      if (key === 's' || key === 'S') {
+        saveCanvas('cohesiveArt', 'png');
+      }
+    }
+  </script>
 
   <script src="script.js"></script>
 </body>
