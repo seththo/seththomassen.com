@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Photo gallery showcasing Seth Thomassen's photography and visual work. Explore a collection of professional and personal photographs." />
   <meta name="keywords" content="Seth Thomassen, Photography, Photo Gallery, Visual Work, Portfolio" />
   <meta name="author" content="Seth Thomassen" />
@@ -24,12 +24,8 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   
-  <title>Photo Gallery - Seth Thomassen</title>
+  <title>Photos - Seth Thomassen</title>
   <link rel="stylesheet" href="style.css" />
   
   <!-- Google tag (gtag.js) -->
@@ -50,6 +46,8 @@
   <!-- Preload critical resources -->
   <link rel="preload" href="style.css" as="style" />
   <link rel="preload" href="script.js" as="script" />
+  
+
 </head>
 <body>
   <div class="layout">
@@ -61,15 +59,16 @@
         
         <!-- Navigation Menu -->
         <ul class="nav-menu">
-          <li><a href="index.html#about" class="nav-link" aria-label="Go to About section">About</a></li>
+          <li><a href="index.html" class="nav-link" aria-label="Go to Home">Home</a></li>
+          <li><a href="work.html" class="nav-link" aria-label="View Work">Work</a></li>
           <li><a href="photos.html" class="nav-link active" aria-label="View Photos (current page)">Photos</a></li>
-          <li><a href="resume.html" class="nav-link" aria-label="View Resume">Resume</a></li>
+          <li><a href="mailto:sthomassen@umass.edu" class="nav-link">Contact</a></li>
         </ul>
 
         <!-- Social Links -->
         <div class="social-links">
           <a href="https://linkedin.com/in/seth-thomassen" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit LinkedIn profile">LinkedIn</a>
-          <a href="mailto:seththomassen1@gmail.com" class="social-link" aria-label="Send email">Email</a>
+          <a href="mailto:sthomassen@umass.edu" class="social-link" aria-label="Send email">Email</a>
         </div>
       </div>
     </nav>
@@ -79,120 +78,196 @@
       <div class="content-wrapper">
         <div class="content-flow">
           <section class="section-block">
-            <h2 class="section-title">Photos</h2>
-            <p class="photos-tip">Click on any photo to view it larger</p>
-            <div class="photos-grid" role="grid" aria-label="Photo gallery">
-              <div class="photo-item" onclick="openLightbox('photos/000040.jpg', 'Photo 1')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000040.jpg', 'Photo 1')">
-                <img src="photos/000040.jpg" alt="Photo 1" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000045.jpg', 'Photo 2')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000045.jpg', 'Photo 2')">
-                <img src="photos/000045.jpg" alt="Photo 2" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000044.jpg', 'Photo 3')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000044.jpg', 'Photo 3')">
-                <img src="photos/000044.jpg" alt="Photo 3" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000066.jpg', 'Photo 4')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000066.jpg', 'Photo 4')">
-                <img src="photos/000066.jpg" alt="Photo 4" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000065.jpg', 'Photo 5')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000065.jpg', 'Photo 5')">
-                <img src="photos/000065.jpg" alt="Photo 5" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000060.jpg', 'Photo 6')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000060.jpg', 'Photo 6')">
-                <img src="photos/000060.jpg" alt="Photo 6" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000043.jpg', 'Photo 7')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000043.jpg', 'Photo 7')">
-                <img src="photos/000043.jpg" alt="Photo 7" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000068.jpg', 'Photo 8')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000068.jpg', 'Photo 8')">
-                <img src="photos/000068.jpg" alt="Photo 8" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000005.jpg', 'Photo 9')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000005.jpg', 'Photo 9')">
-                <img src="photos/000005.jpg" alt="Photo 9" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000023600016.jpg', 'Photo 10')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000023600016.jpg', 'Photo 10')">
-                <img src="photos/000023600016.jpg" alt="Photo 10" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000037880015.jpg', 'Photo 11')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000037880015.jpg', 'Photo 11')">
-                <img src="photos/000037880015.jpg" alt="Photo 11" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000038870021.jpg', 'Photo 12')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000038870021.jpg', 'Photo 12')">
-                <img src="photos/000038870021.jpg" alt="Photo 12" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/000056450029.jpg', 'Photo 13')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/000056450029.jpg', 'Photo 13')">
-                <img src="photos/000056450029.jpg" alt="Photo 13" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-023-10.jpg', 'Photo 14')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/GO5107008727-R1-023-10.jpg', 'Photo 14')">
-                <img src="photos/GO5107008727-R1-023-10.jpg" alt="Photo 14" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-065-31.jpg', 'Photo 15')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/GO5107008727-R1-065-31.jpg', 'Photo 15')">
-                <img src="photos/GO5107008727-R1-065-31.jpg" alt="Photo 15" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/GO5107008727-R1-009-3.jpg', 'Photo 16')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/GO5107008727-R1-009-3.jpg', 'Photo 16')">
-                <img src="photos/GO5107008727-R1-009-3.jpg" alt="Photo 16" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/GI3837002982-R1-053-25.jpg', 'Photo 17')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/GI3837002982-R1-053-25.jpg', 'Photo 17')">
-                <img src="photos/GI3837002982-R1-053-25.jpg" alt="Photo 17" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/GJ0024003357-R1-034-15A.jpg', 'Photo 18')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/GJ0024003357-R1-034-15A.jpg', 'Photo 18')">
-                <img src="photos/GJ0024003357-R1-034-15A.jpg" alt="Photo 18" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3771AA003A.jpg', 'Photo 19')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3771AA003A.jpg', 'Photo 19')">
-                <img src="photos/3771AA003A.jpg" alt="Photo 19" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3771AA007A.jpg', 'Photo 20')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3771AA007A.jpg', 'Photo 20')">
-                <img src="photos/3771AA007A.jpg" alt="Photo 20" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3771AA012A.jpg', 'Photo 21')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3771AA012A.jpg', 'Photo 21')">
-                <img src="photos/3771AA012A.jpg" alt="Photo 21" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3770AA006.jpg', 'Photo 22')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3770AA006.jpg', 'Photo 22')">
-                <img src="photos/3770AA006.jpg" alt="Photo 22" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3770AA004.jpg', 'Photo 23')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3770AA004.jpg', 'Photo 23')">
-                <img src="photos/3770AA004.jpg" alt="Photo 23" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3770AA015.jpg', 'Photo 24')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3770AA015.jpg', 'Photo 24')">
-                <img src="photos/3770AA015.jpg" alt="Photo 24" class="photo-image" loading="lazy">
-              </div>
-              <div class="photo-item" onclick="openLightbox('photos/3770AA036-2.jpg', 'Photo 25')" role="gridcell" tabindex="0" onkeydown="handlePhotoKeydown(event, 'photos/3770AA036-2.jpg', 'Photo 25')">
-                <img src="photos/3770AA036-2.jpg" alt="Photo 25" class="photo-image" loading="lazy">
-              </div>
+            <h2 class="section-title">Photo Gallery</h2>
+            
+            <!-- Dynamic Photo Gallery -->
+            <div id="photo-gallery" class="photo-gallery grid-layout" role="grid" aria-label="Photo gallery">
+              <!-- Photos will be dynamically loaded and randomized -->
             </div>
           </section>
         </div>
       </div>
     </main>
+
+
   </div>
 
-  <!-- Lightbox Modal -->
+  <!-- Enhanced Lightbox Modal -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()" role="dialog" aria-label="Photo lightbox" aria-hidden="true">
     <div class="lightbox-content">
       <button class="close-lightbox" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+      <button class="lightbox-nav prev" onclick="navigateLightbox(-1)" aria-label="Previous photo">&lt;</button>
+      <button class="lightbox-nav next" onclick="navigateLightbox(1)" aria-label="Next photo">&gt;</button>
       <img id="lightbox-image" src="" alt="">
       <div class="lightbox-caption"></div>
+      <div class="lightbox-counter"></div>
     </div>
   </div>
 
   <script src="script.js"></script>
   <script>
-    // Enhanced photo gallery functionality
-    function handlePhotoKeydown(event, imageSrc, caption) {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openLightbox(imageSrc, caption);
+    // Photo data with randomized order and locations
+    // Photo data with actual locations based on renamed files
+    const photos = [
+      // Massachusetts photos
+      { src: 'photos/massachusetts.jpg', alt: 'Massachusetts landscape', location: 'massachusetts' },
+      { src: 'photos/massachusetts2.jpg', alt: 'Massachusetts scene', location: 'massachusetts' },
+      { src: 'photos/000040.jpg', alt: 'Urban landscape', location: 'massachusetts' },
+      { src: 'photos/000060.jpg', alt: 'Urban photography', location: 'massachusetts' },
+      { src: 'photos/3770AA006.jpg', alt: 'Building view', location: 'massachusetts' },
+      { src: 'photos/3771AA012A.jpg', alt: 'City architecture', location: 'massachusetts' },
+      
+      // New Hampshire photos
+      { src: 'photos/newhampshire.jpg', alt: 'New Hampshire landscape', location: 'new-hampshire' },
+      { src: 'photos/newhampshire2.jpg', alt: 'New Hampshire scene', location: 'new-hampshire' },
+      { src: 'photos/newhampshire3.jpg', alt: 'New Hampshire view', location: 'new-hampshire' },
+      { src: 'photos/000043.jpg', alt: 'City view', location: 'new-hampshire' },
+      { src: 'photos/000065.jpg', alt: 'City landscape', location: 'new-hampshire' },
+      { src: 'photos/3770AA015.jpg', alt: 'Urban architecture', location: 'new-hampshire' },
+      
+      // New York City photos
+      { src: 'photos/newyorkcity.jpg', alt: 'New York City scene', location: 'new-york-city' },
+      { src: 'photos/newyorkcity2.jpg', alt: 'New York City view', location: 'new-york-city' },
+      { src: 'photos/000044.jpg', alt: 'Urban scene', location: 'new-york-city' },
+      { src: 'photos/000066.jpg', alt: 'Urban view', location: 'new-york-city' },
+      { src: 'photos/3770AA036-2.jpg', alt: 'City design', location: 'new-york-city' },
+      { src: 'photos/3793AA006.jpg', alt: 'City architecture', location: 'new-york-city' },
+      { src: 'photos/3793AA013.jpg', alt: 'Urban landscape', location: 'new-york-city' },
+      { src: 'photos/3793AA015.jpg', alt: 'City view', location: 'new-york-city' },
+      { src: 'photos/3793AA016.jpg', alt: 'Urban scene', location: 'new-york-city' },
+      { src: 'photos/3793AA017.jpg', alt: 'City design', location: 'new-york-city' },
+      { src: 'photos/3793AA024.jpg', alt: 'Architecture detail', location: 'new-york-city' },
+      { src: 'photos/3793AA025.jpg', alt: 'Urban photography', location: 'new-york-city' },
+      
+      // Florida photos
+      { src: 'photos/florida.jpg', alt: 'Florida landscape', location: 'florida' },
+      { src: 'photos/000045.jpg', alt: 'Cityscape', location: 'florida' },
+      { src: 'photos/000068.jpg', alt: 'City scene', location: 'florida' },
+      { src: 'photos/3771AA003A.jpg', alt: 'Modern building', location: 'florida' },
+      
+      // Vietnam photos
+      { src: 'photos/hochiminhvietnam.jpg', alt: 'Ho Chi Minh City, Vietnam', location: 'ho-chi-minh' },
+      { src: 'photos/3770AA004.jpg', alt: 'Architectural detail', location: 'ho-chi-minh' },
+      { src: 'photos/3771AA007A.jpg', alt: 'Urban landscape', location: 'ho-chi-minh' }
+    ];
+
+    // Location data with actual coordinates
+    const locations = {
+      'massachusetts': {
+        name: 'Massachusetts, USA',
+        lat: 42.4072,
+        lng: -71.3824,
+        photos: photos.filter(p => p.location === 'massachusetts'),
+        color: '#44ff44'
+      },
+      'new-hampshire': {
+        name: 'New Hampshire, USA',
+        lat: 43.1939,
+        lng: -71.5724,
+        photos: photos.filter(p => p.location === 'new-hampshire'),
+        color: '#ffff44'
+      },
+      'new-york-city': {
+        name: 'New York City, USA',
+        lat: 40.7128,
+        lng: -74.0060,
+        photos: photos.filter(p => p.location === 'new-york-city'),
+        color: '#ff4444'
+      },
+      'florida': {
+        name: 'Florida, USA',
+        lat: 27.6648,
+        lng: -81.5158,
+        photos: photos.filter(p => p.location === 'florida'),
+        color: '#4444ff'
+      },
+      'ho-chi-minh': {
+        name: 'Ho Chi Minh City, Vietnam',
+        lat: 10.8231,
+        lng: 106.6297,
+        photos: photos.filter(p => p.location === 'ho-chi-minh'),
+        color: '#ff44ff'
+      }
+    };
+
+    let currentPhotoIndex = 0;
+    let shuffledPhotos = [];
+
+    // Initialize gallery
+    function initGallery() {
+      shuffledPhotos = [...photos];
+      shuffleArray(shuffledPhotos);
+      renderGallery();
+    }
+
+    // Fisher-Yates shuffle algorithm
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
-    
-    // Enhanced lightbox with better accessibility
-    function openLightbox(imageSrc, caption) {
+
+    // Render gallery
+    function renderGallery() {
+      const gallery = document.getElementById('photo-gallery');
+      gallery.innerHTML = '';
+
+      shuffledPhotos.forEach((photo, index) => {
+        const photoElement = createPhotoElement(photo, index);
+        gallery.appendChild(photoElement);
+      });
+
+      // Add entrance animations
+      setTimeout(() => {
+        const photoElements = gallery.querySelectorAll('.photo-item');
+        photoElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }, index * 50);
+        });
+      }, 100);
+    }
+
+    // Create photo element
+    function createPhotoElement(photo, index) {
+      const photoDiv = document.createElement('div');
+      photoDiv.className = 'photo-item';
+      photoDiv.setAttribute('role', 'gridcell');
+      photoDiv.setAttribute('tabindex', '0');
+      photoDiv.onclick = () => openLightbox(photo.src, photo.alt, index);
+      photoDiv.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(photo.src, photo.alt, index);
+        }
+      };
+
+      const img = document.createElement('img');
+      img.src = photo.src;
+      img.alt = photo.alt;
+      img.className = 'photo-image';
+      img.loading = 'lazy';
+
+      photoDiv.appendChild(img);
+
+      return photoDiv;
+    }
+
+    // Enhanced lightbox functionality
+    function openLightbox(imageSrc, caption, index) {
+      currentPhotoIndex = index;
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
       const lightboxCaption = document.querySelector('.lightbox-caption');
+      const lightboxCounter = document.querySelector('.lightbox-counter');
       
       if (lightbox && lightboxImage && lightboxCaption) {
         lightboxImage.src = imageSrc;
         lightboxImage.alt = caption;
         lightboxCaption.textContent = caption;
+        lightboxCounter.textContent = `${index + 1} / ${shuffledPhotos.length}`;
         lightbox.style.display = 'flex';
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -222,11 +297,23 @@
         }, 300);
       }
     }
+
+    function navigateLightbox(direction) {
+      const newIndex = (currentPhotoIndex + direction + shuffledPhotos.length) % shuffledPhotos.length;
+      const photo = shuffledPhotos[newIndex];
+      openLightbox(photo.src, photo.alt, newIndex);
+    }
+
+
     
     // Close lightbox when pressing Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateLightbox(1);
       }
     });
     
@@ -234,6 +321,9 @@
     document.querySelector('.lightbox-content').addEventListener('click', function(e) {
       e.stopPropagation();
     });
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', initGallery);
   </script>
 </body>
 </html> 

@@ -1,0 +1,5 @@
+[33m6a9f1ff[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix mobile scrolling issues
+[33m828beb5[m Add favicon with lowercase 'st' logo
+[33m55cdba7[m Simplify navigation to 3 tabs: About, Photos, Resume
+[33meeedaeb[m Simplify navigation and improve photos section layout
+[33m64ab93d[m Improve mobile scrolling and touch interactions

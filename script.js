@@ -1,4 +1,15 @@
 // Modern Professional Website Enhancements
+
+// Smooth navbar scroll effect
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   // Add loaded class to body for smooth transitions
   document.body.classList.add('loaded');
@@ -8,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeScrollEffects();
   initializeNavigation();
   initializeTypingEffect();
+  initializeGeneralAnimations();
   initializeParallaxEffects();
   initializeAnalytics();
   initializeMobileScrolling();
@@ -424,5 +436,61 @@ function initializeMobileScrolling() {
     element.addEventListener('touchend', function() {
       this.style.transform = 'scale(1)';
     }, { passive: true });
+  });
+}
+
+// General page animations
+function initializeGeneralAnimations() {
+  // Fade in animations for common elements
+  const animateElements = document.querySelectorAll('.hero-section, .profile-section, .section-title, .hero-button, .contact-info');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  animateElements.forEach(el => {
+    if (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.8s ease-out';
+      observer.observe(el);
+    }
+  });
+
+  // Enhanced button hover effects
+  const buttons = document.querySelectorAll('.hero-button, .resume-button, .nav-link');
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      button.style.transform = 'translateY(-2px)';
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Photo gallery entrance animations
+  const photoItems = document.querySelectorAll('.photo-item');
+  photoItems.forEach((item, index) => {
+    if (item.style.opacity !== '1') {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+      
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, 100 + (index * 50));
+    }
   });
 } 
