@@ -31,6 +31,7 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 10;
+  background: transparent;
 }
 
 .home-name {
@@ -41,6 +42,7 @@ body {
   color: #000;
   margin: 0 0 40px 0;
   position: relative;
+  z-index: 11;
   animation: float 8s ease-in-out infinite;
 }
 
@@ -64,6 +66,8 @@ body {
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
+  position: relative;
+  z-index: 11;
 }
 
 .home-nav-link {
@@ -94,160 +98,220 @@ body {
 .symbol {
   position: absolute;
   color: #000;
-  font-size: 1rem;
   font-family: Arial, sans-serif;
   white-space: nowrap;
+  opacity: 1;
 }
 
 /* Symbol Animations */
 .symbol-1 {
   animation: floatSymbol1 15s infinite ease-in-out;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
+  top: 10%;
+  left: 5%;
 }
 
 .symbol-2 {
   animation: floatSymbol2 18s infinite ease-in-out;
-  font-size: 1.1rem;
+  font-size: 0.58rem;
+  top: 80%;
+  left: 10%;
 }
 
 .symbol-3 {
   animation: floatSymbol3 20s infinite ease-in-out;
-  font-size: 0.8rem;
+  font-size: 0.45rem;
+  top: 50%;
+  left: 15%;
 }
 
 .symbol-4 {
   animation: floatSymbol4 16s infinite ease-in-out;
-  font-size: 1rem;
+  font-size: 0.54rem;
+  top: 20%;
+  left: 8%;
 }
 
 .symbol-5 {
   animation: floatSymbol5 22s infinite ease-in-out;
-  font-size: 0.95rem;
+  font-size: 0.52rem;
+  top: 70%;
+  left: 12%;
 }
 
 .symbol-6 {
   animation: floatSymbol6 14s infinite ease-in-out;
-  font-size: 1.2rem;
+  font-size: 0.62rem;
+  top: 30%;
+  left: 6%;
 }
 
 .symbol-7 {
   animation: floatSymbol7 19s infinite ease-in-out;
-  font-size: 0.85rem;
+  font-size: 0.48rem;
+  top: 60%;
+  left: 9%;
 }
 
 .symbol-8 {
   animation: floatSymbol8 17s infinite ease-in-out;
-  font-size: 1.15rem;
+  font-size: 0.6rem;
+  top: 40%;
+  left: 11%;
 }
 
 .symbol-9 {
   animation: floatSymbol9 21s infinite ease-in-out;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
+  top: 15%;
+  left: 7%;
 }
 
 .symbol-10 {
   animation: floatSymbol10 13s infinite ease-in-out;
-  font-size: 1.05rem;
+  font-size: 0.56rem;
+  top: 85%;
+  left: 13%;
 }
 
 .symbol-11 {
   animation: floatSymbol11 23s infinite ease-in-out;
-  font-size: 0.88rem;
+  font-size: 0.47rem;
+  top: 55%;
+  left: 4%;
 }
 
 .symbol-12 {
   animation: floatSymbol12 15s infinite ease-in-out;
-  font-size: 1.1rem;
+  font-size: 0.58rem;
+  top: 25%;
+  left: 14%;
 }
 
 .symbol-13 {
   animation: floatSymbol13 18s infinite ease-in-out;
-  font-size: 0.92rem;
+  font-size: 0.49rem;
+  top: 65%;
+  left: 3%;
 }
 
 .symbol-14 {
   animation: floatSymbol14 20s infinite ease-in-out;
-  font-size: 1rem;
+  font-size: 0.54rem;
+  top: 35%;
+  left: 16%;
 }
 
 .symbol-15 {
   animation: floatSymbol15 16s infinite ease-in-out;
-  font-size: 0.87rem;
+  font-size: 0.46rem;
+  top: 75%;
+  left: 2%;
 }
 
 .symbol-16 {
   animation: floatSymbol16 24s infinite ease-in-out;
-  font-size: 1.18rem;
+  font-size: 0.61rem;
+  top: 45%;
+  left: 17%;
 }
 
 .symbol-17 {
   animation: floatSymbol17 14s infinite ease-in-out;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
+  top: 5%;
+  left: 1%;
 }
 
 .symbol-18 {
   animation: floatSymbol18 19s infinite ease-in-out;
-  font-size: 1.12rem;
+  font-size: 0.59rem;
+  top: 90%;
+  left: 18%;
 }
 
 .symbol-19 {
   animation: floatSymbol19 17s infinite ease-in-out;
-  font-size: 0.85rem;
+  font-size: 0.48rem;
+  top: 12%;
+  left: 19%;
 }
 
 .symbol-20 {
   animation: floatSymbol20 22s infinite ease-in-out;
-  font-size: 1.05rem;
+  font-size: 0.56rem;
+  top: 95%;
+  left: 20%;
 }
 
 .symbol-21 {
   animation: floatSymbol21 15s infinite ease-in-out;
-  font-size: 0.93rem;
+  font-size: 0.51rem;
+  top: 8%;
+  left: 21%;
 }
 
 .symbol-22 {
   animation: floatSymbol22 18s infinite ease-in-out;
-  font-size: 1.08rem;
+  font-size: 0.57rem;
+  top: 88%;
+  left: 22%;
 }
 
 .symbol-23 {
   animation: floatSymbol23 21s infinite ease-in-out;
-  font-size: 0.89rem;
+  font-size: 0.49rem;
+  top: 18%;
+  left: 23%;
 }
 
 .symbol-24 {
   animation: floatSymbol24 16s infinite ease-in-out;
-  font-size: 1.15rem;
+  font-size: 0.6rem;
+  top: 82%;
+  left: 24%;
 }
 
 .symbol-25 {
   animation: floatSymbol25 20s infinite ease-in-out;
-  font-size: 0.91rem;
+  font-size: 0.5rem;
+  top: 22%;
+  left: 25%;
 }
 
 .symbol-26 {
   animation: floatSymbol26 23s infinite ease-in-out;
-  font-size: 1.02rem;
+  font-size: 0.55rem;
+  top: 68%;
+  left: 26%;
 }
 
 .symbol-27 {
   animation: floatSymbol27 14s infinite ease-in-out;
-  font-size: 0.86rem;
+  font-size: 0.47rem;
+  top: 38%;
+  left: 27%;
 }
 
 .symbol-28 {
   animation: floatSymbol28 19s infinite ease-in-out;
-  font-size: 1.09rem;
+  font-size: 0.58rem;
+  top: 58%;
+  left: 28%;
 }
 
 .symbol-29 {
   animation: floatSymbol29 17s infinite ease-in-out;
-  font-size: 0.94rem;
+  font-size: 0.51rem;
+  top: 28%;
+  left: 29%;
 }
 
 .symbol-30 {
   animation: floatSymbol30 22s infinite ease-in-out;
-  font-size: 1.07rem;
+  font-size: 0.56rem;
+  top: 48%;
+  left: 30%;
 }
 
 @keyframes floatSymbol1 {
