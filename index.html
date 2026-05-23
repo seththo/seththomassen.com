@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seth</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7XEY9VPQ5F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,45 +15,21 @@
   </script>
 </head>
 <body>
-  <div class="symbols-container">
-    <div class="symbol symbol-1">:)</div>
-    <div class="symbol symbol-2">0_0</div>
-    <div class="symbol symbol-3">:(</div>
-    <div class="symbol symbol-4">%</div>
-    <div class="symbol symbol-5">:P</div>
-    <div class="symbol symbol-6">:D</div>
-    <div class="symbol symbol-7">:/</div>
-    <div class="symbol symbol-8">*</div>
-    <div class="symbol symbol-9">#</div>
-    <div class="symbol symbol-10">@</div>
-    <div class="symbol symbol-11">;)</div>
-    <div class="symbol symbol-12">:O</div>
-    <div class="symbol symbol-13">:S</div>
-    <div class="symbol symbol-14">$</div>
-    <div class="symbol symbol-15">!</div>
-    <div class="symbol symbol-16">?</div>
-    <div class="symbol symbol-17">~</div>
-    <div class="symbol symbol-18">+</div>
-    <div class="symbol symbol-19">=</div>
-    <div class="symbol symbol-20">&</div>
-    <div class="symbol symbol-21">^</div>
-    <div class="symbol symbol-22">|</div>
-    <div class="symbol symbol-23">\</div>
-    <div class="symbol symbol-24">/</div>
-    <div class="symbol symbol-25">-</div>
-    <div class="symbol symbol-26">_</div>
-    <div class="symbol symbol-27">.</div>
-    <div class="symbol symbol-28">,</div>
-    <div class="symbol symbol-29">:</div>
-    <div class="symbol symbol-30">;</div>
+  <header class="header">
+    <h1 class="name">Seth</h1>
+  </header>
+
+  <main class="main-content">
+    <div class="photo-grid"></div>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="close-lightbox" type="button" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-image" src="" alt="">
+    </div>
   </div>
-  <div class="homepage">
-    <h1 class="home-name">Seth</h1>
-    <nav class="home-nav">
-      <a href="photos.html" class="home-nav-link">Photos</a>
-      <a href="misc.html" class="home-nav-link">Other</a>
-      <a href="contact.html" class="home-nav-link">Contact</a>
-    </nav>
-  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
