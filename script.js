@@ -1,4 +1,4 @@
-const PHOTOS = [
+const PHOTOS_35MM = [
   '000040.jpg', '000045.jpg', '000044.jpg', '000066.jpg', '000065.jpg', '000060.jpg',
   '000043.jpg', '000068.jpg', 'hochiminhvietnam.jpg', 'newyorkcity2.jpg', 'newhampshire3.jpg',
   'florida.jpg', 'massachusetts2.jpg', '3770AA004.jpg', 'massachusetts.jpg', 'newhampshire.jpg',
@@ -11,28 +11,32 @@ const PHOTOS = [
   '000194430021.jpg', '000194430024.jpg',
 ];
 
+const PHOTOS_DIGITAL = [];
+
 let galleryItems = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   const photoGrid = document.querySelector('.photo-grid');
-  if (!photoGrid) return;
 
-  buildGallery(photoGrid);
-  galleryItems = Array.from(photoGrid.querySelectorAll('.photo-thumb'));
+  if (photoGrid) {
+    const category = photoGrid.dataset.category || '35mm';
+    buildGallery(photoGrid, category);
+    galleryItems = Array.from(photoGrid.querySelectorAll('.photo-thumb'));
 
-  photoGrid.addEventListener('click', (e) => {
-    const thumb = e.target.closest('.photo-thumb');
-    if (!thumb) return;
-    openLightbox(thumb.dataset.src, galleryItems.indexOf(thumb));
-  });
+    photoGrid.addEventListener('click', (e) => {
+      const thumb = e.target.closest('.photo-thumb');
+      if (!thumb) return;
+      openLightbox(thumb.dataset.src, galleryItems.indexOf(thumb));
+    });
 
-  document.addEventListener('keydown', (e) => {
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox?.style.display !== 'flex') return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') navigateLightbox(-1);
-    if (e.key === 'ArrowRight') navigateLightbox(1);
-  });
+    document.addEventListener('keydown', (e) => {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox?.style.display !== 'flex') return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+  }
 });
 
 function shuffle(array) {
@@ -44,9 +48,20 @@ function shuffle(array) {
   return items;
 }
 
-function buildGallery(photoGrid) {
+function getPhotos(category) {
+  if (category === 'digital') return PHOTOS_DIGITAL;
+  if (category === 'random' || category === 'all') return [...PHOTOS_35MM, ...PHOTOS_DIGITAL];
+  return PHOTOS_35MM;
+}
+
+function buildGallery(photoGrid, category) {
+  const photos = category === 'random'
+    ? shuffle(getPhotos(category))
+    : getPhotos(category);
+
   photoGrid.innerHTML = '';
-  shuffle(PHOTOS).forEach((filename) => {
+
+  photos.forEach((filename) => {
     const src = `photos/${filename}`;
     const button = document.createElement('button');
     button.className = 'photo-thumb';

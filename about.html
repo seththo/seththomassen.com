@@ -22,23 +22,16 @@
         <a href="photos.html" class="sidebar-link">Photos</a>
         <a href="random.html" class="sidebar-link">Random</a>
         <a href="videos.html" class="sidebar-link">Videos</a>
-        <a href="about.html" class="sidebar-link">About</a>
+        <a href="about.html" class="sidebar-link is-active">About</a>
         <a href="info.html" class="sidebar-link">Info</a>
       </nav>
     </aside>
 
-    <main class="main-content main-content--photos">
-      <div class="photo-grid photo-grid--small" data-category="all"></div>
+    <main class="main-content">
+      <div class="page-text">
+        <p>Hi, my name is Seth. This is my personal website.</p>
+      </div>
     </main>
   </div>
-
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <button class="close-lightbox" type="button" onclick="closeLightbox()">&times;</button>
-      <img id="lightbox-image" src="" alt="">
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

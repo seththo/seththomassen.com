@@ -19,7 +19,7 @@
     <aside class="sidebar">
       <h1 class="sidebar-name"><a href="index.html">Seth</a></h1>
       <nav class="sidebar-nav" aria-label="Main">
-        <a href="photos.html" class="sidebar-link">Photos</a>
+        <a href="photos.html" class="sidebar-link is-active">Photos</a>
         <a href="random.html" class="sidebar-link">Random</a>
         <a href="videos.html" class="sidebar-link">Videos</a>
         <a href="about.html" class="sidebar-link">About</a>
@@ -28,7 +28,11 @@
     </aside>
 
     <main class="main-content main-content--photos">
-      <div class="photo-grid photo-grid--small" data-category="all"></div>
+      <nav class="photo-tabs" aria-label="Photo categories">
+        <a href="photos.html" class="photo-tab">35mm</a>
+        <a href="digital.html" class="photo-tab is-active">Digital</a>
+      </nav>
+      <div class="photo-grid" data-category="digital"></div>
     </main>
   </div>
 
