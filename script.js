@@ -14,30 +14,80 @@ const PHOTOS_35MM = [
 const PHOTOS_DIGITAL = [];
 
 let galleryItems = [];
+let closeHomeMenuFn = null;
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
   const photoGrid = document.querySelector('.photo-grid');
+  const homeGrid = document.querySelector('.home-grid');
 
-  if (photoGrid) {
+  if (homeGrid) {
+    buildHomeGrid(homeGrid);
+    galleryItems = Array.from(homeGrid.querySelectorAll('.photo-thumb'));
+    bindGallery(homeGrid);
+    bindHomeMenu();
+  } else if (photoGrid) {
     const category = photoGrid.dataset.category || '35mm';
     buildGallery(photoGrid, category);
     galleryItems = Array.from(photoGrid.querySelectorAll('.photo-thumb'));
-
-    photoGrid.addEventListener('click', (e) => {
-      const thumb = e.target.closest('.photo-thumb');
-      if (!thumb) return;
-      openLightbox(thumb.dataset.src, galleryItems.indexOf(thumb));
-    });
-
-    document.addEventListener('keydown', (e) => {
-      const lightbox = document.getElementById('lightbox');
-      if (lightbox?.style.display !== 'flex') return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') navigateLightbox(-1);
-      if (e.key === 'ArrowRight') navigateLightbox(1);
-    });
+    bindGallery(photoGrid);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+function bindGallery(container) {
+  container.addEventListener('click', (e) => {
+    const thumb = e.target.closest('.photo-thumb');
+    if (!thumb) return;
+    openLightbox(thumb.dataset.src, galleryItems.indexOf(thumb));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox?.style.display === 'flex') {
+        closeLightbox();
+        return;
+      }
+      if (closeHomeMenuFn) closeHomeMenuFn();
+      return;
+    }
+
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox?.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
+}
+
+function bindHomeMenu() {
+  const toggle = document.querySelector('.menu-toggle');
+  const sidebar = document.getElementById('home-sidebar');
+  if (!toggle || !sidebar) return;
+
+  const close = () => {
+    sidebar.classList.remove('is-open');
+    document.body.classList.remove('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const open = () => {
+    sidebar.classList.add('is-open');
+    document.body.classList.add('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (sidebar.classList.contains('is-open')) close();
+    else open();
+  });
+
+  closeHomeMenuFn = close;
+}
 
 function shuffle(array) {
   const items = [...array];
@@ -52,6 +102,39 @@ function getPhotos(category) {
   if (category === 'digital') return PHOTOS_DIGITAL;
   if (category === 'random' || category === 'all') return [...PHOTOS_35MM, ...PHOTOS_DIGITAL];
   return PHOTOS_35MM;
+}
+
+function buildHomeGrid(container) {
+  const photos = shuffle(getPhotos('all'));
+  const cols = window.innerWidth < 640 ? 5 : window.innerWidth < 900 ? 7 : 10;
+  const emptyCount = Math.floor(photos.length * 0.22);
+  const totalCells = photos.length + emptyCount;
+  const cells = Array(totalCells).fill(null);
+  const slots = shuffle([...Array(totalCells).keys()]).slice(0, photos.length);
+
+  slots.forEach((slot, i) => {
+    cells[slot] = photos[i];
+  });
+
+  container.innerHTML = '';
+  container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+  cells.forEach((filename) => {
+    if (filename) {
+      const src = `photos/${filename}`;
+      const button = document.createElement('button');
+      button.className = 'photo-thumb';
+      button.type = 'button';
+      button.dataset.src = src;
+      button.innerHTML = `<img src="${src}" alt="" loading="lazy">`;
+      container.appendChild(button);
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'home-grid-empty';
+      empty.setAttribute('aria-hidden', 'true');
+      container.appendChild(empty);
+    }
+  });
 }
 
 function buildGallery(photoGrid, category) {

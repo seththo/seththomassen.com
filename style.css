@@ -90,6 +90,97 @@ a {
   padding-right: 40px;
 }
 
+.home-page .main-content--home {
+  margin-left: 0;
+  max-width: none;
+  padding: 64px 16px 48px;
+  transition: margin-left 0.28s ease;
+}
+
+.home-page.sidebar-open .main-content--home {
+  margin-left: 200px;
+}
+
+.home-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: linear-gradient(to bottom, #fff 75%, transparent);
+  pointer-events: none;
+  transition: left 0.28s ease, right 0.28s ease;
+}
+
+.home-page.sidebar-open .home-header {
+  left: 200px;
+}
+
+.home-header > * {
+  pointer-events: auto;
+}
+
+.home-title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.menu-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 28px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.menu-toggle:hover {
+  opacity: 1;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #111;
+}
+
+.sidebar--push {
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+  z-index: 110;
+}
+
+.sidebar--push.is-open {
+  transform: translateX(0);
+}
+
+.home-grid {
+  display: grid;
+  gap: 4px;
+}
+
+.home-grid-empty {
+  aspect-ratio: 1 / 1;
+}
+
+.home-grid .photo-thumb img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .page-text {
   max-width: 480px;
   font-size: 0.95rem;
@@ -108,6 +199,15 @@ a {
 
 .page-text a:hover {
   opacity: 0.55;
+}
+
+.page-text--condensed {
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+.page-text--condensed p + p {
+  margin-top: 0.75em;
 }
 
 .photo-tabs {
@@ -185,6 +285,16 @@ a {
   object-fit: cover;
   display: block;
   transition: opacity 0.3s ease;
+}
+
+.photo-grid--small .photo-thumb {
+  aspect-ratio: 1 / 1;
+}
+
+.photo-grid--small .photo-thumb img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
 }
 
 .photo-thumb:hover img {
@@ -308,6 +418,23 @@ a {
     margin-left: 0;
     margin-top: 108px;
     padding: 20px 16px 64px;
+  }
+
+  .home-page.sidebar-open .main-content--home {
+    margin-left: 200px;
+  }
+
+  .home-page.sidebar-open .home-header {
+    left: 200px;
+  }
+
+  .home-page .main-content--home {
+    margin-top: 0;
+    padding: 56px 10px 40px;
+  }
+
+  .home-header {
+    padding: 16px 18px;
   }
 
   .photo-grid--small {

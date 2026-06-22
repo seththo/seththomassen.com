@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seth</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=4" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7XEY9VPQ5F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,23 +14,28 @@
     gtag('config', 'G-7XEY9VPQ5F');
   </script>
 </head>
-<body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h1 class="sidebar-name"><a href="index.html">Seth</a></h1>
-      <nav class="sidebar-nav" aria-label="Main">
-        <a href="photos.html" class="sidebar-link">Photos</a>
-        <a href="random.html" class="sidebar-link">Random</a>
-        <a href="videos.html" class="sidebar-link">Videos</a>
-        <a href="about.html" class="sidebar-link">About</a>
-        <a href="info.html" class="sidebar-link">Info</a>
-      </nav>
-    </aside>
+<body class="home-page">
+  <header class="home-header">
+    <h1 class="home-title">Seth</h1>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="home-sidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
 
-    <main class="main-content main-content--photos">
-      <div class="photo-grid photo-grid--small" data-category="all"></div>
-    </main>
-  </div>
+  <aside class="sidebar sidebar--push" id="home-sidebar">
+    <nav class="sidebar-nav" aria-label="Main">
+      <a href="photos.html" class="sidebar-link">Photos</a>
+      <a href="random.html" class="sidebar-link">Random</a>
+      <a href="videos.html" class="sidebar-link">Videos</a>
+      <a href="about.html" class="sidebar-link">About</a>
+    </nav>
+  </aside>
+
+  <main class="main-content main-content--home">
+    <div class="home-grid" data-category="all"></div>
+  </main>
 
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content" onclick="event.stopPropagation()">
@@ -39,6 +44,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
