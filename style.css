@@ -7,9 +7,9 @@
 :root {
   --text: #000;
   --muted: #4b5563;
-  --hover-bg: #fecaca;
-  --active-bg: #fca5a5;
-  --sidebar-width: 12rem;
+  --hover-bg: #bbf7d0;
+  --active-bg: #86efac;
+  --sidebar-width: 14rem;
   --sidebar-pad: 0.5rem;
 }
 
@@ -89,6 +89,65 @@ a {
 
 .sidebar-link p {
   margin: 0;
+}
+
+.sidebar-photos {
+  margin: 0;
+}
+
+.sidebar-photos > summary {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.sidebar-photos > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sidebar-photos > summary::marker {
+  content: "";
+}
+
+.sidebar-photos > summary:hover,
+.sidebar-photos > summary:focus-visible {
+  background: var(--hover-bg);
+}
+
+.sidebar-photos.is-active > summary,
+.sidebar-photos[open] > summary.is-active {
+  background: var(--active-bg);
+}
+
+.sidebar-subnav {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0.25rem;
+  padding-left: 0.75rem;
+}
+
+.sidebar-sublink {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sidebar-sublink:hover,
+.sidebar-sublink:focus-visible {
+  color: var(--text);
+}
+
+.sidebar-sublink.is-active {
+  color: var(--text);
 }
 
 /* —— Layout —— */

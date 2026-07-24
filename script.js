@@ -1,17 +1,18 @@
-const PHOTOS_35MM = [
-  '000040.jpg', '000041-2.jpg', '000041.jpg', '000043.jpg', '000044.jpg', '000045.jpg',
-  '000051.jpg', '000054.jpg', '000056460015.jpg', '000060.jpg', '000064.jpg', '000065.jpg',
-  '000066.jpg', '000068.jpg', '000095240011.jpg', '000112070005.jpg', '000112080001.jpg', '000112080003.jpg',
-  '000112080006.jpg', '000112080007.jpg', '000112080009.jpg', '000112080013.jpg', '000112080015.jpg', '000194430021.jpg',
-  '000194430024.jpg', '3770AA004.jpg', '3770AA006.jpg', '3770AA015.jpg', '3770AA036-2.jpg', '3771AA003A.jpg',
-  '3771AA007A.jpg', '3771AA012A.jpg', '3771AA013A.jpg', '3793AA006.jpg', '3793AA013.jpg', '3793AA015.jpg',
-  '3793AA016.jpg', '3793AA017.jpg', '3793AA024.jpg', '3793AA025.jpg', '69.jpg', 'GO5107008727-R1-023-10.jpg',
-  'florida.jpg', 'hochiminhvietnam.jpg', 'massachusetts.jpg', 'massachusetts2.jpg', 'newhampshire.jpg', 'newhampshire2.jpg',
-  'newhampshire3.jpg', 'newyorkcity.jpg', 'newyorkcity2.jpg',
-];
-
-const PHOTOS_DIGITAL = [
-  'DSCN3815.jpg', 'DSCN3822.jpg', 'IMG_7453.jpg', 'IMG_8529.jpg',
+const PHOTOS = [
+  '000040vie.jpg', '000041vie.jpg', '000043vie.jpg', '000044vie.jpg', '000045vie.jpg',
+  '000051vie.jpg', '000054vie.jpg', '000056460015.jpg', '000060vie.jpg', '000064vie.jpg',
+  '000065vie.jpg', '000066vie.jpg', '000068vie.jpg', '000095240011.jpg', '000112070005.jpg',
+  '000112080001roa.jpg', '000112080003roa.jpg', '000112080006roa.jpg', '000112080007roa.jpg',
+  '000112080009roa.jpg', '000112080013.jpg', '000112080015.jpg', '000194430021.jpg',
+  '000194430024.jpg', '3770AA004roa.jpg', '3770AA006roa.jpg', '3770AA015roa.jpg',
+  '3770AA036-2roa.jpg', '3771AA003A.jpg', '3771AA007A.jpg', '3771AA012A.jpg',
+  '3771AA013Aroa.jpg', '3793AA006roa.jpg', '3793AA013roa.jpg', '3793AA015roa.jpg',
+  '3793AA016roa.jpg', '3793AA017roa.jpg', '3793AA024roa.jpg', '3793AA025roa.jpg',
+  '69vie.jpg', 'DSCN3822.jpg', 'florida.jpg', 'GO5107008727-R1-023-10.jpg',
+  'hochiminhvie.jpg', 'IMG_7453.jpg', 'IMG_8529.jpg', 'massachusetts.jpg',
+  'massachusetts2.jpg', 'newhampshire.jpg', 'newhampshire2.jpg', 'newhampshire3.jpg',
+  'newyorkcity.jpg', 'newyorkcity2.jpg', 'R0000663.jpg', 'R0000680.jpg', 'R0000751.jpg',
+  'R0000759.jpg',
 ];
 
 let galleryItems = [];
@@ -58,8 +59,13 @@ function shuffle(array) {
 }
 
 function getPhotos(category) {
-  if (category === 'digital') return PHOTOS_DIGITAL;
-  return [...PHOTOS_35MM, ...PHOTOS_DIGITAL];
+  if (category === 'vietnam') {
+    return PHOTOS.filter((file) => /vie\.(jpe?g|png|webp)$/i.test(file));
+  }
+  if (category === 'roadtrip') {
+    return PHOTOS.filter((file) => /roa\.(jpe?g|png|webp)$/i.test(file));
+  }
+  return [...PHOTOS];
 }
 
 function buildGallery(photoGrid, category) {
