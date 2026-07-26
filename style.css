@@ -171,6 +171,20 @@ a {
 .main-content--home {
   min-height: 100vh;
   min-height: 100dvh;
+  padding: 1.5rem;
+  padding-left: calc(var(--sidebar-width) + 1.5rem);
+  display: flex;
+  align-items: flex-start;
+}
+
+.home-hero {
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  height: auto;
+  max-height: 70vh;
+  max-height: 70dvh;
+  object-fit: contain;
 }
 
 /* —— Text —— */
@@ -264,7 +278,7 @@ a {
 /* —— Photo grid —— */
 .photo-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
@@ -359,10 +373,6 @@ a {
 }
 
 @media (min-width: 640px) {
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .photo-grid--small {
     grid-template-columns: repeat(6, 1fr);
   }
@@ -400,20 +410,26 @@ a {
     padding: 1.5rem 1rem 3rem;
   }
 
-  /* Home: same vertical menu as desktop, full screen */
+  /* Home: vertical menu + hero image */
   .home-page .sidebar {
-    position: fixed;
-    inset: 0;
+    position: static;
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    height: auto;
     padding: var(--sidebar-pad);
     border-bottom: none;
-    overflow-y: auto;
+    overflow: visible;
   }
 
   .home-page .main-content--home {
-    display: none;
+    display: flex;
+    padding: 1rem;
+    min-height: 0;
+  }
+
+  .home-page .home-hero {
+    max-width: 100%;
+    max-height: 55vh;
+    max-height: 55dvh;
   }
 
   .photo-grid--small {
