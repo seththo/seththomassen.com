@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seth - American Road Trip</title>
+  <title>Seth - Roadtrip</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css?v=36" />
+  <link rel="stylesheet" href="style.css?v=46" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7XEY9VPQ5F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,10 +22,11 @@
         <a href="photos.html" class="sidebar-link is-active"><p>photos</p></a>
         <div class="sidebar-subnav" aria-label="Photo categories">
           <a href="photos.html" class="sidebar-sublink">all</a>
-          <a href="photos-roadtrip.html" class="sidebar-sublink is-active">american road trip</a>
+          <a href="photos-roadtrip.html" class="sidebar-sublink is-active">roadtrip</a>
+          <a href="photos-nyc.html" class="sidebar-sublink">nyc</a>
           <a href="photos-vietnam.html" class="sidebar-sublink">vietnam</a>
         </div>
-        <a href="videos.html" class="sidebar-link"><p>videos</p></a>
+        <a href="photos-other.html" class="sidebar-link"><p>other</p></a>
         <a href="about.html" class="sidebar-link"><p>about</p></a>
       </nav>
     </aside>
@@ -38,10 +39,12 @@
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content" onclick="event.stopPropagation()">
       <button class="close-lightbox" type="button" onclick="closeLightbox()">&times;</button>
-      <img id="lightbox-image" src="" alt="">
+      <div class="lightbox-stage">
+        <img id="lightbox-image" src="" alt="">
+      </div>
     </div>
   </div>
 
-  <script src="script.js?v=30"></script>
+  <script src="script.js?v=47"></script>
 </body>
 </html>
