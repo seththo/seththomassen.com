@@ -9,7 +9,7 @@ const PHOTOS = [
   '3770AA004roa.jpg', '3770AA006roa.jpg', '3770AA015roa.jpg', '3770AA036-2roa.jpg',
   '3771AA003A.jpg', '3771AA007A.jpg', '3771AA012A.jpg', '3771AA013Aroa.jpg',
   '3793AA006roa.jpg', '3793AA013roa.jpg', '3793AA015roa.jpg', '3793AA016roa.jpg',
-  '3793AA017roa.jpg', '3793AA024roa.jpg', '3793AA025roa.jpg', '69vie.jpg',
+  '3793AA017roa.jpg', '3793AA023roa.jpg', '3793AA024roa.jpg', '3793AA025roa.jpg', '69vie.jpg',
   'DSCN3822vie.jpg', 'florida.jpg', 'GO5107008727-R1-023-10.jpg', 'hochiminhvie.jpg',
   'IMG_7453.jpg', 'IMG_8529.jpg', 'massachusetts.jpg', 'massachusetts2.jpg',
   'newhampshire.jpg', 'newhampshire2.jpg', 'newhampshire3.jpg', 'newyorkcity2nyc.jpg',
