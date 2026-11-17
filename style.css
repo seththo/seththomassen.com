@@ -282,6 +282,28 @@ a {
   gap: 0.5rem;
 }
 
+.photo-section {
+  grid-column: 1 / -1;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 2rem 0 0.5rem;
+  padding: 0;
+}
+
+.photo-section:first-child {
+  margin-top: 0;
+}
+
+.photo-caption {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  line-height: 1.3;
+  text-align: left;
+}
+
 .photo-thumb {
   appearance: none;
   -webkit-appearance: none;
@@ -289,9 +311,12 @@ a {
   padding: 0;
   background: transparent;
   cursor: pointer;
-  overflow: hidden;
-  display: block;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
+  text-align: left;
 }
 
 .photo-thumb img {
@@ -300,6 +325,7 @@ a {
   object-fit: cover;
   display: block;
   transition: opacity 0.2s ease;
+  border-radius: 2px;
 }
 
 .photo-grid--small .photo-thumb {

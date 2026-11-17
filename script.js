@@ -1,21 +1,83 @@
-const PHOTOS = [
-  '000040vie.jpg', '000041vie.jpg', '000043vie.jpg', '000044vie.jpg', '000045vie.jpg',
-  '000051vie.jpg', '000052780010.jpg', '000052780018.jpg', '000054vie.jpg', '000056460015.jpg',
-  '000060vie.jpg', '000064vie.jpg', '000065vie.jpg', '000066vie.jpg', '000068vie.jpg',
-  '000095240011nyc.jpg', '000112070005nyc.jpg', '000112080001roa.jpg', '000112080003roa.jpg',
-  '000309850010nyc.jpg', '000309850019nyc.jpg',
-  '000112080006roa.jpg', '000112080007roa.jpg', '000112080009roa.jpg', '000112080013.jpg',
-  '000112080015.jpg', '000194430004nyc.jpg', '000194430021nyc.jpg', '000194430024nyc.jpg',
-  '3770AA004roa.jpg', '3770AA006roa.jpg', '3770AA015roa.jpg', '3770AA036-2roa.jpg',
-  '3771AA003A.jpg', '3771AA007A.jpg', '3771AA012A.jpg', '3771AA013Aroa.jpg',
-  '3793AA006roa.jpg', '3793AA013roa.jpg', '3793AA015roa.jpg', '3793AA016roa.jpg',
-  '3793AA017roa.jpg', '3793AA023roa.jpg', '3793AA024roa.jpg', '3793AA025roa.jpg', '69vie.jpg',
-  'DSCN3822vie.jpg', 'florida.jpg', 'GO5107008727-R1-023-10.jpg', 'hochiminhvie.jpg',
-  'IMG_7453.jpg', 'IMG_8529.jpg', 'massachusetts.jpg', 'massachusetts2.jpg',
-  'newhampshire.jpg', 'newhampshire2.jpg', 'newhampshire3.jpg', 'newyorkcity2nyc.jpg',
-  'newyorkcitynyc.jpg', 'R0000663nyc.jpg', 'R0000680nyc.jpg', 'R0000751nyc.jpg',
-  'R0000759nyc.jpg', 'R0000912.jpg', 'R0000971.jpg',
+// Gallery structure for "all" view - supports sections and captions
+// Use { section: 'Title' } for section headers
+// Use { file: 'name.jpg', caption: 'Optional caption' } for photos
+const GALLERY = [
+  { section: 'New York City' },
+  { file: 'newyorkcitynyc.jpg' },
+  { file: 'newyorkcity2nyc.jpg' },
+  { file: '000095240011nyc.jpg' },
+  { file: '000112070005nyc.jpg' },
+  { file: '000194430004nyc.jpg' },
+  { file: '000194430021nyc.jpg' },
+  { file: '000194430024nyc.jpg' },
+  { file: 'R0000663nyc.jpg' },
+  { file: 'R0000680nyc.jpg' },
+  { file: 'R0000751nyc.jpg' },
+  { file: 'R0000759nyc.jpg' },
+  { file: '000309850010nyc.jpg' },
+  { file: '000309850019nyc.jpg' },
+
+  { section: 'Road Trip' },
+  { file: '3793AA006roa.jpg' },
+  { file: '3793AA013roa.jpg' },
+  { file: '3793AA015roa.jpg' },
+  { file: '3793AA016roa.jpg' },
+  { file: '3793AA017roa.jpg' },
+  { file: '3793AA023roa.jpg' },
+  { file: '3793AA024roa.jpg' },
+  { file: '3793AA025roa.jpg' },
+  { file: '3770AA004roa.jpg' },
+  { file: '3770AA006roa.jpg' },
+  { file: '3770AA015roa.jpg' },
+  { file: '3770AA036-2roa.jpg' },
+  { file: '3771AA013Aroa.jpg' },
+  { file: '000112080001roa.jpg' },
+  { file: '000112080003roa.jpg' },
+  { file: '000112080006roa.jpg' },
+  { file: '000112080007roa.jpg' },
+  { file: '000112080009roa.jpg' },
+
+  { section: 'Vietnam' },
+  { file: 'hochiminhvie.jpg' },
+  { file: '000040vie.jpg' },
+  { file: '000041vie.jpg' },
+  { file: '000043vie.jpg' },
+  { file: '000044vie.jpg' },
+  { file: '000045vie.jpg' },
+  { file: '000051vie.jpg' },
+  { file: '000054vie.jpg' },
+  { file: '000060vie.jpg' },
+  { file: '000064vie.jpg' },
+  { file: '000065vie.jpg' },
+  { file: '000066vie.jpg' },
+  { file: '000068vie.jpg' },
+  { file: '69vie.jpg' },
+  { file: 'DSCN3822vie.jpg' },
+
+  { section: 'Other' },
+  { file: 'florida.jpg' },
+  { file: 'massachusetts.jpg' },
+  { file: 'massachusetts2.jpg' },
+  { file: 'newhampshire.jpg' },
+  { file: 'newhampshire2.jpg' },
+  { file: 'newhampshire3.jpg' },
+  { file: 'R0000912.jpg' },
+  { file: 'R0000971.jpg' },
+  { file: '000052780010.jpg' },
+  { file: '000052780018.jpg' },
+  { file: '000056460015.jpg' },
+  { file: '000112080013.jpg' },
+  { file: '000112080015.jpg' },
+  { file: '3771AA003A.jpg' },
+  { file: '3771AA007A.jpg' },
+  { file: '3771AA012A.jpg' },
+  { file: 'GO5107008727-R1-023-10.jpg' },
+  { file: 'IMG_7453.jpg' },
+  { file: 'IMG_8529.jpg' },
 ];
+
+// Flat list of all photo filenames (for category filtering)
+const PHOTOS = GALLERY.filter(item => item.file).map(item => item.file);
 
 let galleryItems = [];
 let currentIndex = 0;
@@ -89,21 +151,43 @@ function getPhotos(category) {
 }
 
 function buildGallery(photoGrid, category) {
-  const photos = category === 'all'
-    ? shuffle(getPhotos(category))
-    : getPhotos(category);
-
   photoGrid.innerHTML = '';
 
-  photos.forEach((filename) => {
-    const src = `photos/${filename}`;
-    const button = document.createElement('button');
-    button.className = 'photo-thumb';
-    button.type = 'button';
-    button.dataset.src = src;
-    button.innerHTML = `<img src="${src}" alt="" loading="lazy">`;
-    photoGrid.appendChild(button);
-  });
+  if (category === 'all') {
+    // Use structured gallery with sections
+    GALLERY.forEach((item) => {
+      if (item.section) {
+        const header = document.createElement('h2');
+        header.className = 'photo-section';
+        header.textContent = item.section;
+        photoGrid.appendChild(header);
+      } else if (item.file) {
+        const src = `photos/${item.file}`;
+        const button = document.createElement('button');
+        button.className = 'photo-thumb';
+        button.type = 'button';
+        button.dataset.src = src;
+        if (item.caption) button.dataset.caption = item.caption;
+        button.innerHTML = `<img src="${src}" alt="" loading="lazy">${item.caption ? `<span class="photo-caption">${item.caption}</span>` : ''}`;
+        photoGrid.appendChild(button);
+      }
+    });
+  } else {
+    // Category pages - flat list, no sections
+    const photos = getPhotos(category);
+    photos.forEach((filename) => {
+      const src = `photos/${filename}`;
+      const galleryItem = GALLERY.find(g => g.file === filename);
+      const caption = galleryItem?.caption;
+      const button = document.createElement('button');
+      button.className = 'photo-thumb';
+      button.type = 'button';
+      button.dataset.src = src;
+      if (caption) button.dataset.caption = caption;
+      button.innerHTML = `<img src="${src}" alt="" loading="lazy">${caption ? `<span class="photo-caption">${caption}</span>` : ''}`;
+      photoGrid.appendChild(button);
+    });
+  }
 }
 
 function getLightboxEls() {
