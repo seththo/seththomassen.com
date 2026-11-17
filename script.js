@@ -14,7 +14,7 @@ const PHOTOS = [
   'IMG_7453.jpg', 'IMG_8529.jpg', 'massachusetts.jpg', 'massachusetts2.jpg',
   'newhampshire.jpg', 'newhampshire2.jpg', 'newhampshire3.jpg', 'newyorkcity2nyc.jpg',
   'newyorkcitynyc.jpg', 'R0000663nyc.jpg', 'R0000680nyc.jpg', 'R0000751nyc.jpg',
-  'R0000759nyc.jpg',
+  'R0000759nyc.jpg', 'R0000912.jpg', 'R0000971.jpg',
 ];
 
 let galleryItems = [];

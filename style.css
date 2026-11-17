@@ -398,6 +398,35 @@ a {
   opacity: 1;
 }
 
+@media (max-width: 767px) {
+  .close-lightbox {
+    top: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    z-index: 2010;
+  }
+
+  .close-lightbox:hover,
+  .close-lightbox:active {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+  }
+
+  .lightbox-stage {
+    touch-action: none;
+  }
+}
+
 .photo-grid--small {
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
@@ -468,11 +497,7 @@ a {
     gap: 2px;
   }
 
-  .lightbox {
-    padding: 2rem 1rem;
-  }
-
-  .close-lightbox {
-    top: -2rem;
+  .lightbox-stage {
+    padding: 3.5rem 1rem 2rem;
   }
 }
