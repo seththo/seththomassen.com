@@ -1,57 +1,25 @@
 // Gallery structure for "all" view - supports sections and captions
 // Use { section: 'Title' } for section headers
 // Use { file: 'name.jpg', caption: 'Optional caption' } for photos
-// 10 newest photos (including uncommitted ones added today)
+// Most recent photos from latest photo PRs (shown first on "all")
 const NEWEST = [
-  { file: '000118940023nyc.jpg', ratio: 1.5 },   // subway police - NEW
-  { file: '3771AA011Aroa.jpg', ratio: 1.5 },     // train tracks - NEW
-  { file: '000112080011roa.jpg', ratio: 1.5 },   // car at night - NEW
-  { file: 'R0000657nyc.jpg', ratio: 1.5 },       // TV on sidewalk - NEW
-  { file: '000259350008oth.jpg', ratio: 1.5 },   // boat - NEW
-  { file: 'R0000912.jpg', ratio: 1.5 },          // landscape
-  { file: 'R0000971.jpg', ratio: 1.5 },          // landscape
-  { file: '3793AA023roa.jpg', ratio: 1.5 },      // landscape
-  { file: '000309850010nyc.jpg', ratio: 0.67 },  // portrait
-  { file: '000309850019nyc.jpg', ratio: 0.67 },  // portrait
+  '000118940023nyc.jpg',  // subway police
+  '3771AA011Aroa.jpg',    // train tracks
+  '000112080011roa.jpg',  // car at night
+  'R0000657nyc.jpg',      // TV on sidewalk
+  '000259350008oth.jpg',  // boat
 ];
 
-// Pick 6 photos: first 3 from 10 newest only, next 3 from everything else
-// Avoids showing same photos as last refresh
-function pickFirst6(newestPhotos, allPhotos) {
-  const newestFiles = newestPhotos.map(p => p.file);
-  
-  // Get last picks from storage to avoid repeats
-  let lastFirst3 = [];
-  let lastNext3 = [];
-  try {
-    lastFirst3 = JSON.parse(sessionStorage.getItem('lastFirst3') || '[]');
-    lastNext3 = JSON.parse(sessionStorage.getItem('lastNext3') || '[]');
-  } catch (e) {}
-  
-  // First 3: from newest, excluding last picks
-  let availableNewest = newestFiles.filter(f => !lastFirst3.includes(f));
-  if (availableNewest.length < 3) availableNewest = newestFiles; // reset if not enough
-  const first3 = shuffle([...availableNewest]).slice(0, 3);
-  
-  // Next 3: from others, excluding last picks
-  let otherPhotos = allPhotos.filter(f => !newestFiles.includes(f) && !lastNext3.includes(f));
-  if (otherPhotos.length < 3) otherPhotos = allPhotos.filter(f => !newestFiles.includes(f));
-  const next3 = shuffle(otherPhotos).slice(0, 3);
-  
-  // Save for next refresh
-  try {
-    sessionStorage.setItem('lastFirst3', JSON.stringify(first3));
-    sessionStorage.setItem('lastNext3', JSON.stringify(next3));
-  } catch (e) {}
-  
-  console.log('First 3 (from newest):', first3);
-  console.log('Next 3 (from others):', next3);
-  
-  return [...first3, ...next3];
-}
+// Keep these near the top after NEWEST (not lost in the shuffle)
+const FEATURED = [
+  'R0000971.jpg',         // deer
+  'R0000912.jpg',
+];
 
 const GALLERY = [
   { section: 'New York City' },
+  { file: '000118940023nyc.jpg' },
+  { file: 'R0000657nyc.jpg' },
   { file: 'newyorkcity2nyc.jpg' },
   { file: '000095240011nyc.jpg' },
   { file: '000112070005nyc.jpg' },
@@ -66,6 +34,8 @@ const GALLERY = [
   { file: '000309850019nyc.jpg' },
 
   { section: 'Road Trip' },
+  { file: '3771AA011Aroa.jpg' },
+  { file: '000112080011roa.jpg' },
   { file: '3793AA006roa.jpg' },
   { file: '3793AA013roa.jpg' },
   { file: '3793AA015roa.jpg' },
@@ -104,6 +74,7 @@ const GALLERY = [
 
   { break: true },
 
+  { file: '000259350008oth.jpg' },
   { file: 'florida.jpg' },
   { file: 'massachusetts.jpg' },
   { file: 'massachusetts2.jpg' },
@@ -183,6 +154,20 @@ function shuffle(array) {
   return items;
 }
 
+function appendPhoto(photoGrid, filename) {
+  const src = `photos/${filename}`;
+  const galleryItem = GALLERY.find((g) => g.file === filename);
+  const caption = galleryItem?.caption;
+  const button = document.createElement('button');
+  button.className = 'photo-thumb';
+  button.type = 'button';
+  button.dataset.src = src;
+  if (caption) button.dataset.caption = caption;
+  // eager: CSS multi-column + loading=lazy often skips images off-screen in other columns
+  button.innerHTML = `<img src="${src}" alt="" loading="eager" decoding="async">${caption ? `<span class="photo-caption">${caption}</span>` : ''}`;
+  photoGrid.appendChild(button);
+}
+
 function getPhotos(category) {
   if (category === 'vietnam') {
     return PHOTOS.filter((file) => /vie\.(jpe?g|png|webp)$/i.test(file));
@@ -194,7 +179,11 @@ function getPhotos(category) {
     return PHOTOS.filter((file) => /nyc\.(jpe?g|png|webp)$/i.test(file));
   }
   if (category === 'other') {
-    return PHOTOS.filter((file) => /oth\.(jpe?g|png|webp)$/i.test(file));
+    // tagged oth + uncategorized (no nyc/roa/vie/oth suffix)
+    return PHOTOS.filter((file) =>
+      /oth\.(jpe?g|png|webp)$/i.test(file) ||
+      !/(nyc|roa|vie|oth)\.(jpe?g|png|webp)$/i.test(file)
+    );
   }
   return [...PHOTOS];
 }
@@ -203,65 +192,13 @@ function buildGallery(photoGrid, category) {
   photoGrid.innerHTML = '';
 
   if (category === 'all') {
-    // First 6: shuffled with similar sizes paired together
-    const first6 = pickFirst6(NEWEST, PHOTOS);
-    
-    first6.forEach((file) => {
-      const src = `photos/${file}`;
-      const button = document.createElement('button');
-      button.className = 'photo-thumb';
-      button.type = 'button';
-      button.dataset.src = src;
-      button.innerHTML = `<img src="${src}" alt="" loading="lazy">`;
-      photoGrid.appendChild(button);
-    });
-
-    // Track shown photos to avoid repeats within 3 rows (6 photos)
-    const shownInTop = [...first6];
-
-    // Rest of gallery with sections
-    let recentlyShown = [...shownInTop];
-    GALLERY.forEach((item) => {
-      if (item.section) {
-        const header = document.createElement('h2');
-        header.className = 'photo-section';
-        header.textContent = item.section;
-        photoGrid.appendChild(header);
-      } else if (item.break) {
-        const spacer = document.createElement('div');
-        spacer.className = 'photo-break';
-        photoGrid.appendChild(spacer);
-      } else if (item.file) {
-        // Skip if shown in last 6 photos (3 rows)
-        if (recentlyShown.slice(-6).includes(item.file)) {
-          return;
-        }
-        const src = `photos/${item.file}`;
-        const button = document.createElement('button');
-        button.className = 'photo-thumb';
-        button.type = 'button';
-        button.dataset.src = src;
-        if (item.caption) button.dataset.caption = item.caption;
-        button.innerHTML = `<img src="${src}" alt="" loading="lazy">${item.caption ? `<span class="photo-caption">${item.caption}</span>` : ''}`;
-        photoGrid.appendChild(button);
-        recentlyShown.push(item.file);
-      }
-    });
+    // First 5: latest PR photos, then featured (e.g. deer), then shuffle the rest once
+    const pinned = new Set([...NEWEST, ...FEATURED]);
+    const rest = shuffle(PHOTOS.filter((file) => !pinned.has(file)));
+    const order = [...NEWEST, ...FEATURED.filter((f) => PHOTOS.includes(f)), ...rest];
+    order.forEach((file) => appendPhoto(photoGrid, file));
   } else {
-    // Category pages - flat list, no sections
-    const photos = getPhotos(category);
-    photos.forEach((filename) => {
-      const src = `photos/${filename}`;
-      const galleryItem = GALLERY.find(g => g.file === filename);
-      const caption = galleryItem?.caption;
-      const button = document.createElement('button');
-      button.className = 'photo-thumb';
-      button.type = 'button';
-      button.dataset.src = src;
-      if (caption) button.dataset.caption = caption;
-      button.innerHTML = `<img src="${src}" alt="" loading="lazy">${caption ? `<span class="photo-caption">${caption}</span>` : ''}`;
-      photoGrid.appendChild(button);
-    });
+    getPhotos(category).forEach((filename) => appendPhoto(photoGrid, filename));
   }
 }
 

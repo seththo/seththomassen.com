@@ -9,7 +9,7 @@
   --muted: #4b5563;
   --hover-bg: #bbf7d0;
   --active-bg: #86efac;
-  --sidebar-width: 14rem;
+  --sidebar-width: 9.5rem;
   --sidebar-pad: 0.5rem;
 }
 
@@ -20,7 +20,9 @@ body {
   background: #fff;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  /* clip (not hidden): overflow-x:hidden + CSS columns can hide photos */
+  overflow-x: clip;
 }
 
 a {
@@ -161,7 +163,7 @@ a {
   max-width: 100%;
   padding: 1.5rem;
   padding-left: calc(var(--sidebar-width) + 1.5rem);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .main-content--photos {
@@ -281,12 +283,12 @@ a {
   margin: 0 0 1.5rem;
 }
 
-/* —— Photo grid —— */
+/* —— Photo grid (natural aspect ratios, 2 columns) —— */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 .photo-section {
@@ -328,6 +330,7 @@ a {
   overflow: visible;
   display: block;
   width: 100%;
+  margin: 0;
   text-align: left;
 }
 
@@ -337,11 +340,6 @@ a {
   display: block;
   transition: opacity 0.2s ease;
   border-radius: 2px;
-}
-
-.photo-grid--small .photo-thumb img {
-  width: 100%;
-  height: auto;
 }
 
 
@@ -473,11 +471,6 @@ a {
   }
 }
 
-@media (min-width: 1100px) {
-  .photo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 @media (min-width: 1200px) {
   .photo-grid--small {
@@ -485,21 +478,82 @@ a {
   }
 }
 
+/* —— Phone / small tablet —— */
 @media (max-width: 767px) {
   .sidebar {
     position: static;
     width: 100%;
     height: auto;
-    padding: 0.75rem 1rem;
+    padding: 0.65rem 0.75rem 0.75rem;
+    padding-top: max(0.65rem, env(safe-area-inset-top));
     border-bottom: 1px solid #f3f4f6;
     overflow: visible;
   }
 
-  .main-content {
-    padding: 1.5rem 1rem 3rem;
+  .sidebar-name {
+    margin: 0 0 0.4rem;
+    font-size: 1.375rem;
   }
 
-  /* Home: vertical menu + hero image */
+  /* Compact top nav: photos · other · about, then subcats */
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 1rem;
+  }
+
+  .sidebar-link {
+    order: 1;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .sidebar-link p {
+    padding: 0.15rem 0;
+  }
+
+  .sidebar-subnav {
+    order: 2;
+    flex-basis: 100%;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2rem 1rem;
+    margin: 0.1rem 0 0;
+    padding-left: 0;
+  }
+
+  .sidebar-sublink {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    padding: 0.35rem 0;
+  }
+
+  .main-content {
+    padding: 0.85rem 0.5rem 2.25rem;
+    padding-bottom: max(2.25rem, env(safe-area-inset-bottom));
+    padding-left: max(0.5rem, env(safe-area-inset-left));
+    padding-right: max(0.5rem, env(safe-area-inset-right));
+  }
+
+  .page-intro {
+    font-size: 0.9375rem;
+    margin: 0 0 0.65rem;
+    padding: 0 0.15rem;
+  }
+
+  /* 2 columns on phone too — natural size, edge-to-edge */
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .photo-thumb img {
+    border-radius: 0;
+  }
+
+  /* Home: keep simple stacked menu + hero */
   .home-page .sidebar {
     position: static;
     width: 100%;
@@ -507,6 +561,16 @@ a {
     padding: var(--sidebar-pad);
     border-bottom: none;
     overflow: visible;
+  }
+
+  .home-page .sidebar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .home-page .sidebar-link {
+    order: 0;
   }
 
   .home-page .main-content--home {
@@ -522,11 +586,18 @@ a {
   }
 
   .photo-grid--small {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
   }
 
   .lightbox-stage {
-    padding: 3.5rem 1rem 2rem;
+    padding: 3.5rem 0.5rem 2rem;
+  }
+}
+
+/* —— Wide desktop: use a bit more width —— */
+@media (min-width: 1200px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
