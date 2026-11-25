@@ -3,11 +3,11 @@
 // Use { file: 'name.jpg', caption: 'Optional caption' } for photos
 // Most recent photos from latest photo PRs (shown first on "all")
 const NEWEST = [
+  '000098000008nyc.jpg',  // Manhattan skyline through fence
+  '000098000005nyc.jpg',  // Verrazzano bridge / shoreline
   '000118940023nyc.jpg',  // subway police
   '3771AA011Aroa.jpg',    // train tracks
   '000112080011roa.jpg',  // car at night
-  'R0000657nyc.jpg',      // TV on sidewalk
-  '000259350008oth.jpg',  // boat
 ];
 
 // Keep these near the top after NEWEST (not lost in the shuffle)
@@ -18,6 +18,8 @@ const FEATURED = [
 
 const GALLERY = [
   { section: 'New York City' },
+  { file: '000098000008nyc.jpg' },
+  { file: '000098000005nyc.jpg' },
   { file: '000118940023nyc.jpg' },
   { file: 'R0000657nyc.jpg' },
   { file: 'newyorkcity2nyc.jpg' },
