@@ -11,6 +11,7 @@
   --active-bg: #86efac;
   --sidebar-width: 9.5rem;
   --sidebar-pad: 0.5rem;
+  --horse-run-height: 2.75rem;
 }
 
 body {
@@ -25,15 +26,59 @@ body {
   overflow-x: clip;
 }
 
+/* —— Running horse across the top (on white; scrolls away) —— */
+.horse-run {
+  position: relative;
+  width: 100%;
+  height: var(--horse-run-height);
+  background: transparent;
+  overflow: hidden;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.horse-run__pack {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: clamp(8rem, 22vw, 16rem);
+  transform: translateY(-50%) translateX(-50%);
+  animation: horse-gallop 28s linear infinite;
+}
+
+.horse-run__img {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+  flex-shrink: 0;
+  /* knock out the GIF's black background on white */
+  mix-blend-mode: multiply;
+}
+
+/* duplicated strip: animate second half → first half for a seamless loop */
+@keyframes horse-gallop {
+  from { transform: translateY(-50%) translateX(-50%); }
+  to { transform: translateY(-50%) translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .horse-run__pack {
+    animation: none;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
 a {
   color: inherit;
 }
 
 /* —— isak-style sidebar —— */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -154,15 +199,17 @@ a {
 
 /* —— Layout —— */
 .layout {
+  display: flex;
+  align-items: flex-start;
   min-height: 100vh;
   min-height: 100dvh;
 }
 
 .main-content {
   min-width: 0;
+  flex: 1;
   max-width: 100%;
   padding: 1.5rem;
-  padding-left: calc(var(--sidebar-width) + 1.5rem);
   overflow-x: clip;
 }
 
@@ -174,7 +221,6 @@ a {
   min-height: 100vh;
   min-height: 100dvh;
   padding: 1.5rem;
-  padding-left: calc(var(--sidebar-width) + 1.5rem);
   display: flex;
   align-items: flex-start;
 }
@@ -480,6 +526,10 @@ a {
 
 /* —— Phone / small tablet —— */
 @media (max-width: 767px) {
+  .layout {
+    flex-direction: column;
+  }
+
   .sidebar {
     position: static;
     width: 100%;
